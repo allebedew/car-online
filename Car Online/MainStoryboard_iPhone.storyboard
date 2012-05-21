@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IKp-a8-5Xx">
+    <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <development defaultVersion="4200" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+    </dependencies>
+    <scenes>
+        <!--Main Controller-->
+        <scene sceneID="smz-0T-jTD">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWL-mg-DdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="main" title="Main" wantsFullScreenLayout="YES" id="IKp-a8-5Xx" userLabel="Main Controller" customClass="ALViewController" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YHj-2Z-650">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" id="sBF-7u-Y4i">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IKp-a8-5Xx" id="xMT-Ov-fAI"/>
+                                </connections>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="11D-KG-VxQ">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rMc-Wr-z17" userLabel="Space"/>
+                                    <barButtonItem title="SMS" id="T4k-u1-KZX" userLabel="SMS">
+                                        <color key="tintColor" white="0.4015561996" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Zm1-1f-USR" kind="modal" id="7VA-ED-J2w"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Events" id="Il7-QD-BHQ" userLabel="Events">
+                                        <color key="tintColor" white="0.4015561996" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="uta-xm-RTq" kind="modal" id="soU-wG-JM5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First line description text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="1Zd-gO-WGR" userLabel="Label 1">
+                                <rect key="frame" x="8" y="438" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Second line description text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rHz-ab-ogJ" userLabel="Label 2">
+                                <rect key="frame" x="8" y="455" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="jIO-WI-SLy" userLabel="Settings">
+                                <rect key="frame" x="282" y="397" width="18" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Wsx-yo-DRw" kind="modal" identifier="settings" id="C3L-Tz-5SZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ga8-nC-baj"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="descriptionLabel1" destination="1Zd-gO-WGR" id="EFv-M6-Bpy"/>
+                        <outlet property="descriptionLabel2" destination="rHz-ab-ogJ" id="ggq-MO-Zsv"/>
+                        <outlet property="mapView" destination="sBF-7u-Y4i" id="0hW-lu-j4o"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="70" y="37"/>
+        </scene>
+        <!--Settings Controller-->
+        <scene sceneID="Rt3-E0-Eo1">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXP-4R-fd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Wsx-yo-DRw" userLabel="Settings Controller" customClass="ALSettingsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eNs-w0-0AI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="4sN-WF-KqF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Settings" id="Tmt-Tl-spA">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gwe-5A-sDE">
+                                            <connections>
+                                                <action selector="donePressed:" destination="Wsx-yo-DRw" id="uVA-aT-0Ef"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0GF-rf-D2d">
+                                <rect key="frame" x="20" y="149" width="280" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                <connections>
+                                    <action selector="textFieldChanged:" destination="Wsx-yo-DRw" eventType="editingChanged" id="Uo8-43-BR9"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="API Key" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Omr-VY-qeC">
+                                <rect key="frame" x="20" y="92" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You can find it on car-online.ru → Settings → Key for API" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="024-1q-s6G">
+                                <rect key="frame" x="20" y="113" width="280" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.89683089719999998" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="sVp-rk-KEf" id="1Bq-gV-K4a"/>
+                        <outlet property="apiKeyField" destination="0GF-rf-D2d" id="ZdV-hl-sgE"/>
+                        <outlet property="doneButton" destination="gwe-5A-sDE" id="Uea-bW-iAh"/>
+                    </connections>
+                </viewController>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="sVp-rk-KEf">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+            </objects>
+            <point key="canvasLocation" x="181" y="653"/>
+        </scene>
+        <!--SMS Controller-->
+        <scene sceneID="ZAY-fG-hTr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEc-tt-Dhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Zm1-1f-USR" userLabel="SMS Controller" customClass="ALSMSList" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9fU-gj-8rY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="0gm-At-lhi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="SMS" id="6vh-uR-STc">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="BpW-jx-gDh">
+                                            <connections>
+                                                <action selector="close:" destination="Zm1-1f-USR" id="iBd-p6-Mkg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gfg-B7-cx2">
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.90259576610000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zm1-1f-USR" id="xVu-an-gpo"/>
+                                    <outlet property="delegate" destination="Zm1-1f-USR" id="2Le-8U-j0F"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Gfg-B7-cx2" id="Baf-YL-BM6"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="559" y="359"/>
+        </scene>
+        <!--Events Controller-->
+        <scene sceneID="POp-i6-qQr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecz-qr-mmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="events" id="uta-xm-RTq" customClass="ALEventsController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ZB-GU-Ryl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="Zhc-3P-X3m">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Events" id="u0c-Nk-YAb">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="V12-cj-5aa">
+                                            <connections>
+                                                <action selector="close:" destination="Ecz-qr-mmf" id="emL-z8-BjR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="064-Hz-px7">
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.90259576610000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uta-xm-RTq" id="74e-KV-XrN"/>
+                                    <outlet property="delegate" destination="uta-xm-RTq" id="wGZ-kB-O4Y"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="064-Hz-px7" id="nXk-e7-Kyk"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="568" y="-260"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="ALEventsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALEventsController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ALSMSList" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALSMSList.h"/>
+            <relationships>
+                <relationship kind="action" name="close:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ALSettingsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALSettingsController.h"/>
+            <relationships>
+                <relationship kind="action" name="donePressed:"/>
+                <relationship kind="action" name="textFieldChanged:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="apiKeyField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ALViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
