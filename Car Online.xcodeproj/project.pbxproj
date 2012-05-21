@@ -33,6 +33,7 @@
 		A118E96F15226CCF00C6C89D /* SMSList.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118E96E15226CCF00C6C89D /* SMSList.plist */; };
 		A118E97115226FA000C6C89D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A118E97015226FA000C6C89D /* MessageUI.framework */; };
 		A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A118E97415237BC200C6C89D /* ALSettingsController.m */; };
+		A1356145156AD41000E7780B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1356146156AD41000E7780B /* InfoPlist.strings */; };
 		A14699211523961C001C7DD7 /* input-3-off.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699101523961C001C7DD7 /* input-3-off.gif */; };
 		A14699221523961C001C7DD7 /* input-3-on.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699111523961C001C7DD7 /* input-3-on.gif */; };
 		A14699231523961C001C7DD7 /* input-2-off.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699121523961C001C7DD7 /* input-2-off.gif */; };
@@ -94,7 +95,6 @@
 		A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD015176B2D0095FD7D /* UIKit.framework */; };
 		A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD215176B2D0095FD7D /* Foundation.framework */; };
 		A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */; };
-		A1B2ADDB15176B2D0095FD7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1B2ADD915176B2D0095FD7D /* InfoPlist.strings */; };
 		A1B2ADDD15176B2D0095FD7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADDC15176B2D0095FD7D /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADE415176B2D0095FD7D /* ALViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE315176B2D0095FD7D /* ALViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -139,6 +139,7 @@
 		A118E97015226FA000C6C89D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A118E97315237BC200C6C89D /* ALSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSettingsController.h; sourceTree = "<group>"; };
 		A118E97415237BC200C6C89D /* ALSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSettingsController.m; sourceTree = "<group>"; };
+		A1356146156AD41000E7780B /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		A14699101523961C001C7DD7 /* input-3-off.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-3-off.gif"; sourceTree = "<group>"; };
 		A14699111523961C001C7DD7 /* input-3-on.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-3-on.gif"; sourceTree = "<group>"; };
 		A14699121523961C001C7DD7 /* input-2-off.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-2-off.gif"; sourceTree = "<group>"; };
@@ -202,7 +203,6 @@
 		A1B2ADD215176B2D0095FD7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A1B2ADD815176B2D0095FD7D /* Car Online-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Car Online-Info.plist"; sourceTree = "<group>"; };
-		A1B2ADDA15176B2D0095FD7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1B2ADDC15176B2D0095FD7D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1B2ADDE15176B2D0095FD7D /* Car Online-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Car Online-Prefix.pch"; sourceTree = "<group>"; };
 		A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAppDelegate.h; sourceTree = "<group>"; };
@@ -399,7 +399,7 @@
 			children = (
 				A1D6B48D15262B5000A78472 /* Sevastopol.gpx */,
 				A1B2ADD815176B2D0095FD7D /* Car Online-Info.plist */,
-				A1B2ADD915176B2D0095FD7D /* InfoPlist.strings */,
+				A1356146156AD41000E7780B /* InfoPlist.strings */,
 				A1B2ADDC15176B2D0095FD7D /* main.m */,
 				A1B2ADDE15176B2D0095FD7D /* Car Online-Prefix.pch */,
 			);
@@ -457,7 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2ADDB15176B2D0095FD7D /* InfoPlist.strings in Resources */,
+				A1356145156AD41000E7780B /* InfoPlist.strings in Resources */,
 				A118E93E1522648F00C6C89D /* EventTypes.plist in Resources */,
 				A118E952152264F500C6C89D /* request-foto.gif in Resources */,
 				A118E953152264F500C6C89D /* valetoff.gif in Resources */,
@@ -563,17 +563,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A1B2ADD915176B2D0095FD7D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1B2ADDA15176B2D0095FD7D /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A1B2ADEB15176B2D0095FD7D /* Debug */ = {
