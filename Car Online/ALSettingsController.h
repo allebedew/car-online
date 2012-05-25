@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ALSettingsDelegateProtocol.h"
 
 @interface ALSettingsController : UIViewController
-
-@property (nonatomic, weak) id <ALSettingsDelegate> delegate;
 
 @end

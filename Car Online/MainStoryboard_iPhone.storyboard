@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IKp-a8-5Xx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IKp-a8-5Xx">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -10,7 +10,7 @@
         <scene sceneID="smz-0T-jTD">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oWL-mg-DdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="main" title="Main" wantsFullScreenLayout="YES" id="IKp-a8-5Xx" userLabel="Main Controller" customClass="ALViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" title="Main" id="IKp-a8-5Xx" userLabel="Main Controller" customClass="ALViewController" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YHj-2Z-650">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,23 +26,29 @@
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rMc-Wr-z17" userLabel="Space"/>
-                                    <barButtonItem title="SMS" id="T4k-u1-KZX" userLabel="SMS">
-                                        <color key="tintColor" white="0.4015561996" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <barButtonItem systemItem="search" id="T4k-u1-KZX" userLabel="Track">
+                                        <color key="tintColor" white="0.40000000000000002" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="Zm1-1f-USR" kind="modal" id="7VA-ED-J2w"/>
+                                            <action selector="trackButtonPressed:" destination="IKp-a8-5Xx" id="hFh-iQ-Xjc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rMc-Wr-z17" userLabel="Space"/>
+                                    <barButtonItem title="SMS" id="UVV-93-ffl" userLabel="SMS">
+                                        <color key="tintColor" white="0.40000000000000002" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="Zm1-1f-USR" kind="modal" identifier="sms" id="zRx-ZQ-4JM"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Events" id="Il7-QD-BHQ" userLabel="Events">
-                                        <color key="tintColor" white="0.4015561996" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.40000000000000002" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="uta-xm-RTq" kind="modal" id="soU-wG-JM5"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First line description text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="1Zd-gO-WGR" userLabel="Label 1">
-                                <rect key="frame" x="8" y="438" width="139" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="1Zd-gO-WGR" userLabel="Label 1">
+                                <rect key="frame" x="50" y="438" width="143" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -50,8 +56,8 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Second line description text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rHz-ab-ogJ" userLabel="Label 2">
-                                <rect key="frame" x="8" y="455" width="139" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rHz-ab-ogJ" userLabel="Label 2">
+                                <rect key="frame" x="50" y="455" width="143" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -86,6 +92,7 @@
                         <outlet property="descriptionLabel1" destination="1Zd-gO-WGR" id="EFv-M6-Bpy"/>
                         <outlet property="descriptionLabel2" destination="rHz-ab-ogJ" id="ggq-MO-Zsv"/>
                         <outlet property="mapView" destination="sBF-7u-Y4i" id="0hW-lu-j4o"/>
+                        <outlet property="trackButton" destination="T4k-u1-KZX" id="nRM-Mx-fma"/>
                     </connections>
                 </viewController>
             </objects>
@@ -105,6 +112,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Settings" id="Tmt-Tl-spA">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3L4-iM-tRI">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="Wsx-yo-DRw" id="6jK-3h-Jm0"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="gwe-5A-sDE">
                                             <connections>
                                                 <action selector="donePressed:" destination="Wsx-yo-DRw" id="uVA-aT-0Ef"/>
@@ -192,6 +204,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hbS-VJ-v3q"/>
                     <connections>
                         <outlet property="tableView" destination="Gfg-B7-cx2" id="Baf-YL-BM6"/>
                     </connections>
@@ -260,19 +273,23 @@
         <class className="ALSettingsController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ALSettingsController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelPressed:"/>
                 <relationship kind="action" name="donePressed:"/>
                 <relationship kind="action" name="textFieldChanged:"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="apiKeyField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="ALViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ALViewController.h"/>
             <relationships>
+                <relationship kind="action" name="trackButtonPressed:"/>
                 <relationship kind="outlet" name="descriptionLabel1" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionLabel2" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="trackButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
     </classes>

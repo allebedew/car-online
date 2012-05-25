@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
-@interface NSDictionary (MapKit) <MKAnnotation>
-
-@end
-
-@interface NSArray (MapKit) <MKOverlay>
-
-@end
-
-@interface ALViewController : UIViewController
+@interface ALViewController : UIViewController {
+    
+    NSTimer *updateTimer;
+    
+}
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation NSDate (Convertions)
 
-- (NSString*)agoString {
+- (NSString*)agoFromNow {
     NSInteger secs = fabs([self timeIntervalSinceNow]);
     if (secs > 60*60*24) {
         return [NSString stringWithFormat:@"%d days ago", secs / (60*60*24)];

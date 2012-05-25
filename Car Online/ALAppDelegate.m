@@ -13,9 +13,7 @@
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:.7 alpha:1.]];
-    
     return YES;
 }
 

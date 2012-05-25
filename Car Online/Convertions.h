@@ -10,7 +10,7 @@
 
 @interface NSDate (Convertions)
 
-- (NSString*)agoString;
+- (NSString*)agoFromNow;
 - (NSString*)formattedString;
 
 @end
