@@ -26,29 +26,31 @@
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem systemItem="search" id="T4k-u1-KZX" userLabel="Track">
-                                        <color key="tintColor" white="0.40000000000000002" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <barButtonItem image="71-compass.png" style="plain" id="T4k-u1-KZX" userLabel="Track">
                                         <connections>
                                             <action selector="trackButtonPressed:" destination="IKp-a8-5Xx" id="hFh-iQ-Xjc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rMc-Wr-z17" userLabel="Space"/>
-                                    <barButtonItem title="SMS" id="UVV-93-ffl" userLabel="SMS">
-                                        <color key="tintColor" white="0.40000000000000002" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <barButtonItem image="09-chat2.png" style="plain" id="UVV-93-ffl" userLabel="SMS">
                                         <connections>
                                             <segue destination="Zm1-1f-USR" kind="modal" identifier="sms" id="zRx-ZQ-4JM"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Events" id="Il7-QD-BHQ" userLabel="Events">
-                                        <color key="tintColor" white="0.40000000000000002" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <barButtonItem image="55-network.png" style="plain" id="Il7-QD-BHQ" userLabel="Events">
                                         <connections>
                                             <segue destination="uta-xm-RTq" kind="modal" id="soU-wG-JM5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="19-gear.png" style="plain" id="zMa-bq-v66" userLabel="Settings">
+                                        <connections>
+                                            <segue destination="Wsx-yo-DRw" kind="modal" identifier="settings" id="zEx-N2-ido"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="1Zd-gO-WGR" userLabel="Label 1">
-                                <rect key="frame" x="50" y="438" width="143" height="21"/>
+                                <rect key="frame" x="44" y="438" width="162" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -57,7 +59,7 @@
                                 <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rHz-ab-ogJ" userLabel="Label 2">
-                                <rect key="frame" x="50" y="455" width="143" height="21"/>
+                                <rect key="frame" x="44" y="455" width="162" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -65,21 +67,6 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="jIO-WI-SLy" userLabel="Settings">
-                                <rect key="frame" x="282" y="397" width="18" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Wsx-yo-DRw" kind="modal" identifier="settings" id="C3L-Tz-5SZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -255,6 +242,12 @@
             <point key="canvasLocation" x="568" y="-260"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="09-chat2.png" width="24" height="22"/>
+        <image name="19-gear.png" width="26" height="26"/>
+        <image name="55-network.png" width="24" height="24"/>
+        <image name="71-compass.png" width="24" height="24"/>
+    </resources>
     <classes>
         <class className="ALEventsController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ALEventsController.h"/>

@@ -33,7 +33,6 @@
 		A118E96F15226CCF00C6C89D /* SMSList.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118E96E15226CCF00C6C89D /* SMSList.plist */; };
 		A118E97115226FA000C6C89D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A118E97015226FA000C6C89D /* MessageUI.framework */; };
 		A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A118E97415237BC200C6C89D /* ALSettingsController.m */; };
-		A1356145156AD41000E7780B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1356146156AD41000E7780B /* InfoPlist.strings */; };
 		A14699211523961C001C7DD7 /* input-3-off.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699101523961C001C7DD7 /* input-3-off.gif */; };
 		A14699221523961C001C7DD7 /* input-3-on.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699111523961C001C7DD7 /* input-3-on.gif */; };
 		A14699231523961C001C7DD7 /* input-2-off.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699121523961C001C7DD7 /* input-2-off.gif */; };
@@ -92,6 +91,10 @@
 		A146998715239BE8001C7DD7 /* heavy-shock.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997415239BE8001C7DD7 /* heavy-shock.gif */; };
 		A146998815239BE8001C7DD7 /* light-shock.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997515239BE8001C7DD7 /* light-shock.gif */; };
 		A146998915239BE8001C7DD7 /* ext-zone-microwave.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997615239BE8001C7DD7 /* ext-zone-microwave.gif */; };
+		A15B5A2F1570C48000667BCB /* 71-compass.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A2E1570C48000667BCB /* 71-compass.png */; };
+		A15B5A311570C4CE00667BCB /* 55-network.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A301570C4CE00667BCB /* 55-network.png */; };
+		A15B5A331570C4F100667BCB /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A321570C4F100667BCB /* 19-gear.png */; };
+		A15B5A371570C58B00667BCB /* 09-chat2.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A361570C58B00667BCB /* 09-chat2.png */; };
 		A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD015176B2D0095FD7D /* UIKit.framework */; };
 		A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD215176B2D0095FD7D /* Foundation.framework */; };
 		A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */; };
@@ -140,7 +143,6 @@
 		A118E97015226FA000C6C89D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A118E97315237BC200C6C89D /* ALSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSettingsController.h; sourceTree = "<group>"; };
 		A118E97415237BC200C6C89D /* ALSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSettingsController.m; sourceTree = "<group>"; };
-		A1356146156AD41000E7780B /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		A14699101523961C001C7DD7 /* input-3-off.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-3-off.gif"; sourceTree = "<group>"; };
 		A14699111523961C001C7DD7 /* input-3-on.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-3-on.gif"; sourceTree = "<group>"; };
 		A14699121523961C001C7DD7 /* input-2-off.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-2-off.gif"; sourceTree = "<group>"; };
@@ -199,6 +201,10 @@
 		A146997415239BE8001C7DD7 /* heavy-shock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "heavy-shock.gif"; sourceTree = "<group>"; };
 		A146997515239BE8001C7DD7 /* light-shock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "light-shock.gif"; sourceTree = "<group>"; };
 		A146997615239BE8001C7DD7 /* ext-zone-microwave.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ext-zone-microwave.gif"; sourceTree = "<group>"; };
+		A15B5A2E1570C48000667BCB /* 71-compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "71-compass.png"; sourceTree = "<group>"; };
+		A15B5A301570C4CE00667BCB /* 55-network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "55-network.png"; sourceTree = "<group>"; };
+		A15B5A321570C4F100667BCB /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
+		A15B5A361570C58B00667BCB /* 09-chat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat2.png"; sourceTree = "<group>"; };
 		A1B2ADCC15176B2D0095FD7D /* Car Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2ADD015176B2D0095FD7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1B2ADD215176B2D0095FD7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -341,6 +347,17 @@
 			path = EventIcons;
 			sourceTree = "<group>";
 		};
+		A15B5A1A1570C1BE00667BCB /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				A15B5A361570C58B00667BCB /* 09-chat2.png */,
+				A15B5A301570C4CE00667BCB /* 55-network.png */,
+				A15B5A321570C4F100667BCB /* 19-gear.png */,
+				A15B5A2E1570C48000667BCB /* 71-compass.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		A1B2ADC115176B2C0095FD7D = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +409,7 @@
 				A118E97415237BC200C6C89D /* ALSettingsController.m */,
 				A10DE7891517EB99000A7EEA /* Model */,
 				A118E93F152264D400C6C89D /* Event Icons */,
+				A15B5A1A1570C1BE00667BCB /* Icons */,
 				A1B2ADD715176B2D0095FD7D /* Supporting Files */,
 			);
 			path = "Car Online";
@@ -402,7 +420,6 @@
 			children = (
 				A1D6B48D15262B5000A78472 /* Sevastopol.gpx */,
 				A1B2ADD815176B2D0095FD7D /* Car Online-Info.plist */,
-				A1356146156AD41000E7780B /* InfoPlist.strings */,
 				A1B2ADDC15176B2D0095FD7D /* main.m */,
 				A1B2ADDE15176B2D0095FD7D /* Car Online-Prefix.pch */,
 			);
@@ -460,7 +477,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1356145156AD41000E7780B /* InfoPlist.strings in Resources */,
 				A118E93E1522648F00C6C89D /* EventTypes.plist in Resources */,
 				A118E952152264F500C6C89D /* request-foto.gif in Resources */,
 				A118E953152264F500C6C89D /* valetoff.gif in Resources */,
@@ -543,6 +559,10 @@
 				A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */,
 				A1D6B49015262B6D00A78472 /* MainStoryboard_iPhone.storyboard in Resources */,
 				A1D6B4C9152701BC00A78472 /* ALRequest.plist in Resources */,
+				A15B5A2F1570C48000667BCB /* 71-compass.png in Resources */,
+				A15B5A311570C4CE00667BCB /* 55-network.png in Resources */,
+				A15B5A331570C4F100667BCB /* 19-gear.png in Resources */,
+				A15B5A371570C58B00667BCB /* 09-chat2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

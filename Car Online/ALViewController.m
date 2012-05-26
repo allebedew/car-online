@@ -139,7 +139,7 @@
 #pragma mark Map Kit Delegate
 
 - (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated {
-    self.trackButton.tintColor = mode == MKUserTrackingModeNone ? [UIColor colorWithWhite:.4 alpha:1.] : [UIColor colorWithHue:.58 saturation:.7 brightness:.8 alpha:1.];
+    self.trackButton.tintColor = mode == MKUserTrackingModeNone ? nil : [UIColor colorWithHue:.55 saturation:.5 brightness:1. alpha:1.];
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
