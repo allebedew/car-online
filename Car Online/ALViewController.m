@@ -68,7 +68,7 @@
             }
             
             // adding annotation
-            ALAnnotation *annotation = [[ALAnnotation alloc] init];
+            ALAnnotation *annotation = [[[ALAnnotation alloc] init] autorelease];
             annotation.gpsPoint = [points objectAtIndex:0];
             annotation.coordinate = CLLocationCoordinate2DMake([[annotation.gpsPoint objectForKey:@"lat"] doubleValue], [[annotation.gpsPoint objectForKey:@"lon"] doubleValue]);
             [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, ZOOM_METTERS, ZOOM_METTERS) animated:YES];
@@ -115,7 +115,7 @@
         if ([anAnnotation isKindOfClass:[ALAnnotation class]]) {
             ALAnnotation *annotation = anAnnotation;
             if (mapView.userLocation.location) {
-                annotation.title = [NSString stringWithFormat:@"Car is %.0fm away", [self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude]]];            
+                annotation.title = [NSString stringWithFormat:@"Car is %.0fm away", [self.mapView.userLocation.location distanceFromLocation:[[[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude] autorelease]]];            
             } else {
                 annotation.title = @"Car";
             }
@@ -129,17 +129,13 @@
 }
 
 - (IBAction)trackButtonPressed:(id)sender {
-    if (self.mapView.userTrackingMode == MKUserTrackingModeNone) {
-        [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
-    } else {
-        [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
-    }
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
 }
 
 #pragma mark Map Kit Delegate
 
 - (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated {
-    self.trackButton.tintColor = mode == MKUserTrackingModeNone ? nil : [UIColor colorWithHue:.55 saturation:.5 brightness:1. alpha:1.];
+    self.trackButton.enabled = mode == MKUserTrackingModeNone;
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {

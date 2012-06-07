@@ -17,7 +17,7 @@
 + (void)processErrorString:(NSString*)errorString {
     NSLog(@"Request error: %@", errorString);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        [[[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
     });
 }
 
@@ -41,7 +41,7 @@
     if (LOG)
         NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
-    GDataXMLDocument *xml = [[GDataXMLDocument alloc] initWithData:data options:0 error:&err];
+    GDataXMLDocument *xml = [[[GDataXMLDocument alloc] initWithData:data options:0 error:&err] autorelease];
     
     if (err || [xml.rootElement.name isEqual:@"error"]) {
         [self processErrorString:err ? err.localizedDescription : xml.rootElement.stringValue];
@@ -49,7 +49,7 @@
     }
 
     // Parsing
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:@"ddMMyyyy_HHmmss"];
     [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:60*60*SERVER_TIME_ZONE]];
     

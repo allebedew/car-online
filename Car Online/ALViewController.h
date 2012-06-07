@@ -10,7 +10,7 @@
 
 @interface ALViewController : UIViewController {
     
-    NSTimer *updateTimer;
+    __weak NSTimer *updateTimer;
     
 }
 
