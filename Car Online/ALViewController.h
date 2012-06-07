@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ALViewController : UIViewController {
-    
-    __weak NSTimer *updateTimer;
-    
-}
+@interface ALViewController : UIViewController
 
 @end
