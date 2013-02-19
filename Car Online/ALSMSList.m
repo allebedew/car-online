@@ -33,7 +33,7 @@
 }
 
 - (IBAction)close:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Table View
@@ -77,7 +77,7 @@
         messageController.recipients = [NSArray arrayWithObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"phone-number"]];
     }
     messageController.messageComposeDelegate = self;
-    [self presentModalViewController:messageController animated:YES];
+    [self presentViewController:messageController animated:YES completion:nil];
 }
 
 #pragma mark Message Framework Delegate
@@ -88,7 +88,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[controller.recipients objectAtIndex:0] forKey:@"phone-number"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    [controller dismissModalViewControllerAnimated:YES];
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

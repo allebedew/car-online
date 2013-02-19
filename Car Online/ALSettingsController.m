@@ -49,7 +49,7 @@
 }
 
 - (IBAction)cancelPressed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)donePressed:(id)sender {
@@ -76,7 +76,7 @@
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"api-key-changed" object:self];
-            [self dismissModalViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
         });
     });
 }
