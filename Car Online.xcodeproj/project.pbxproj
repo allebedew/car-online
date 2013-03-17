@@ -95,6 +95,7 @@
 		A15B5A311570C4CE00667BCB /* 55-network.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A301570C4CE00667BCB /* 55-network.png */; };
 		A15B5A331570C4F100667BCB /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A321570C4F100667BCB /* 19-gear.png */; };
 		A15B5A371570C58B00667BCB /* 09-chat2.png in Resources */ = {isa = PBXBuildFile; fileRef = A15B5A361570C58B00667BCB /* 09-chat2.png */; };
+		A1ACEACA16F5C4B700D15ACB /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ACEAC916F5C4B700D15ACB /* libxml2.2.dylib */; };
 		A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD015176B2D0095FD7D /* UIKit.framework */; };
 		A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD215176B2D0095FD7D /* Foundation.framework */; };
 		A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */; };
@@ -103,7 +104,6 @@
 		A1B2ADE415176B2D0095FD7D /* ALViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE315176B2D0095FD7D /* ALViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; };
-		A1B2ADF7151782A50095FD7D /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADF6151782A50095FD7D /* libxml2.2.7.3.dylib */; };
 		A1B2ADF915178EE70095FD7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADF815178EE70095FD7D /* MapKit.framework */; };
 		A1B2ADFB151798D20095FD7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADFA151798D10095FD7D /* CoreLocation.framework */; };
 		A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B48D15262B5000A78472 /* Sevastopol.gpx */; };
@@ -204,6 +204,7 @@
 		A15B5A301570C4CE00667BCB /* 55-network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "55-network.png"; sourceTree = "<group>"; };
 		A15B5A321570C4F100667BCB /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
 		A15B5A361570C58B00667BCB /* 09-chat2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat2.png"; sourceTree = "<group>"; };
+		A1ACEAC916F5C4B700D15ACB /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		A1B2ADCC15176B2D0095FD7D /* Car Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2ADD015176B2D0095FD7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1B2ADD215176B2D0095FD7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,7 +220,6 @@
 		A1B2ADF1151771150095FD7D /* ALRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRequest.m; sourceTree = "<group>"; };
 		A1B2ADF315177CE40095FD7D /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
-		A1B2ADF6151782A50095FD7D /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		A1B2ADF815178EE70095FD7D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A1B2ADFA151798D10095FD7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A1D6B48D15262B5000A78472 /* Sevastopol.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sevastopol.gpx; sourceTree = "<group>"; };
@@ -232,10 +232,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1ACEACA16F5C4B700D15ACB /* libxml2.2.dylib in Frameworks */,
 				A118E97115226FA000C6C89D /* MessageUI.framework in Frameworks */,
 				A1B2ADFB151798D20095FD7D /* CoreLocation.framework in Frameworks */,
 				A1B2ADF915178EE70095FD7D /* MapKit.framework in Frameworks */,
-				A1B2ADF7151782A50095FD7D /* libxml2.2.7.3.dylib in Frameworks */,
 				A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */,
 				A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */,
 				A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */,
@@ -375,10 +375,10 @@
 		A1B2ADCF15176B2D0095FD7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1ACEAC916F5C4B700D15ACB /* libxml2.2.dylib */,
 				A118E97015226FA000C6C89D /* MessageUI.framework */,
 				A1B2ADFA151798D10095FD7D /* CoreLocation.framework */,
 				A1B2ADF815178EE70095FD7D /* MapKit.framework */,
-				A1B2ADF6151782A50095FD7D /* libxml2.2.7.3.dylib */,
 				A1B2ADD015176B2D0095FD7D /* UIKit.framework */,
 				A1B2ADD215176B2D0095FD7D /* Foundation.framework */,
 				A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */,
