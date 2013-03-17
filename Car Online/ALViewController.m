@@ -9,7 +9,7 @@
 #import "ALViewController.h"
 #import "ALRequest.h"
 #import "Convertions.h"
-#import "ALMapKitObjects.h"
+#import <MapKit/MapKit.h>
 
 #define ZOOM_METTERS 250
 
@@ -21,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *trackButton;
 
 - (void)loadData;
-- (void)setAutoUpdateAnnotation:(BOOL)on;
 - (void)updateAnnotation;
 - (IBAction)trackButtonPressed:(id)sender;
 
@@ -38,7 +37,6 @@
 - (void)awakeFromNib {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"api-key-changed" object:nil];
-    [self setAutoUpdateAnnotation:YES];
     [self loadData];
 }
 
@@ -56,27 +54,41 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *points = [ALRequest runRequest:@"points"];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (!points.count)
-                return;
-            NSLog(@"%d gps points. last: %@", points.count, [points objectAtIndex:0]);
-            
-            // removing annotation
-            for (id annotation in self.mapView.annotations) {
-                if ([annotation isKindOfClass:[ALAnnotation class]]) {
-                    [self.mapView removeAnnotation:annotation];
+            if (points.count > 0) {
+                NSLog(@"%d gps points. last: %@", points.count, [points objectAtIndex:0]);
+                
+                // removing annotation
+                for (id annotation in self.mapView.annotations) {
+                    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+                        [self.mapView removeAnnotation:annotation];
+                    }
                 }
+                
+                // adding annotation
+                NSDictionary *point = [points objectAtIndex:0];
+                MKPointAnnotation *annotation = [[[MKPointAnnotation alloc] init] autorelease];
+                annotation.coordinate = CLLocationCoordinate2DMake([[point objectForKey:@"lat"] doubleValue], [[point objectForKey:@"lon"] doubleValue]);
+                annotation.title = @"Car";
+                if ([[point objectForKey:@"speed"] integerValue] > 0) {
+                    annotation.subtitle = [NSString stringWithFormat:@"%@, %@ km/h", [[point objectForKey:@"date"] agoFromNow], [point objectForKey:@"speed"]];
+                } else {
+                    annotation.subtitle = [[point objectForKey:@"date"] agoFromNow];
+                }
+                [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, ZOOM_METTERS, ZOOM_METTERS) animated:YES];
+                [self.mapView addAnnotation:annotation];
+                [self updateAnnotation];
             }
             
-            // adding annotation
-            ALAnnotation *annotation = [[[ALAnnotation alloc] init] autorelease];
-            annotation.gpsPoint = [points objectAtIndex:0];
-            annotation.coordinate = CLLocationCoordinate2DMake([[annotation.gpsPoint objectForKey:@"lat"] doubleValue], [[annotation.gpsPoint objectForKey:@"lon"] doubleValue]);
-            [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, ZOOM_METTERS, ZOOM_METTERS) animated:YES];
-            [self.mapView addAnnotation:annotation];
-            [self updateAnnotation];
-            
             // add route
-//            [self.mapView addOverlay:points];
+            if (points.count > 1) {
+                CLLocationCoordinate2D* coords = malloc(points.count * sizeof(CLLocationCoordinate2D));
+                for (int i = 0; i < points.count; i++) {
+                    coords[i] = CLLocationCoordinate2DMake([[[points objectAtIndex:i] objectForKey:@"lat"] doubleValue], [[[points objectAtIndex:i] objectForKey:@"lon"] doubleValue]);
+                }
+                [self.mapView addOverlay:[MKPolyline polylineWithCoordinates:coords count:points.count]];
+                free(coords);
+            }
+            
         });
         if (!points)
             return;
@@ -84,7 +96,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!info)
                 return;
-            NSLog(@"telemetry data: %@", info);
+//            NSLog(@"telemetry data: %@", info);
             
             self.descriptionLabel1.text = [NSString stringWithFormat:@"%@ km for %@", [info objectForKey:@"mileage"], [[info objectForKey:@"engineTime"] timeStringFromMinutes]];
             self.descriptionLabel2.text = [NSString stringWithFormat:@"%@ km/h max, %d runs", [info objectForKey:@"maxSpeed"], [[info objectForKey:@"waysCount"] integerValue]];
@@ -102,27 +114,13 @@
     [self performSegueWithIdentifier:@"settings" sender:self];
 }
 
-- (void)setAutoUpdateAnnotation:(BOOL)on {
-    if (on) {
-        updateTimer = [NSTimer scheduledTimerWithTimeInterval:10. target:self selector:@selector(updateAnnotation) userInfo:nil repeats:YES];
-    } else {
-        [updateTimer invalidate];
-    }
-}
-
 - (void)updateAnnotation {
-    for (id anAnnotation in self.mapView.annotations) {
-        if ([anAnnotation isKindOfClass:[ALAnnotation class]]) {
-            ALAnnotation *annotation = anAnnotation;
+    for (MKShape *annotation in self.mapView.annotations) {
+        if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
             if (mapView.userLocation.location) {
                 annotation.title = [NSString stringWithFormat:@"Car is %.0fm away", [self.mapView.userLocation.location distanceFromLocation:[[[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude] autorelease]]];            
             } else {
                 annotation.title = @"Car";
-            }
-            if ([[annotation.gpsPoint objectForKey:@"speed"] integerValue] > 0) {
-                annotation.subtitle = [NSString stringWithFormat:@"%@, %@ km/h", [[annotation.gpsPoint objectForKey:@"date"] agoFromNow], [annotation.gpsPoint objectForKey:@"speed"]];
-            } else {
-                annotation.subtitle = [[annotation.gpsPoint objectForKey:@"date"] agoFromNow];
             }
         }
     }
@@ -141,23 +139,39 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     [self updateAnnotation];
 }
-
+/*
+- (MKAnnotationView*)mapView:(MKMapView *)aMapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    static NSString *DefaultIdentifier = @"default";
+    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[aMapView dequeueReusableAnnotationViewWithIdentifier:DefaultIdentifier];
+        if (!annotationView) {
+            annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:DefaultIdentifier] autorelease];
+            annotationView.canShowCallout = YES;
+            annotationView.animatesDrop = YES;
+        }
+        return annotationView;
+    }
+    return nil;
+}
+*/
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     for (MKAnnotationView *annotationView in views) {
-        if ([annotationView.annotation isKindOfClass:[ALAnnotation class]]) {
+        if ([annotationView isKindOfClass:[MKPinAnnotationView class]]) {
+            ((MKPinAnnotationView*)annotationView).animatesDrop = YES;
             [self.mapView selectAnnotation:annotationView.annotation animated:YES];
             break;
         }
     }
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id < MKOverlay >)overlay {
-    NSLog(@"view for overlay %@", nil);
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolylineView *pathView = [[[MKPolylineView alloc] initWithPolyline:overlay] autorelease];
+        pathView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:.5];
+        pathView.lineWidth = 5.;
+        return pathView;
+    }
     return nil;
-}
-
-- (void)mapView:(MKMapView *)mapView didAddOverlayViews:(NSArray *)overlayViews {
-    NSLog(@"add overlays %@", overlayViews);
 }
 
 #pragma Shake Detection
