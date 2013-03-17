@@ -105,7 +105,6 @@
 		A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; };
 		A1B2ADF915178EE70095FD7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADF815178EE70095FD7D /* MapKit.framework */; };
 		A1B2ADFB151798D20095FD7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADFA151798D10095FD7D /* CoreLocation.framework */; };
-		A1B57102157021AD0021AD90 /* ALMapKitObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B57101157021AD0021AD90 /* ALMapKitObjects.m */; };
 		A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B48D15262B5000A78472 /* Sevastopol.gpx */; };
 		A1D6B49015262B6D00A78472 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */; };
 		A1D6B4C9152701BC00A78472 /* ALRequest.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B4C8152701BC00A78472 /* ALRequest.plist */; };
@@ -223,8 +222,6 @@
 		A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		A1B2ADF815178EE70095FD7D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A1B2ADFA151798D10095FD7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		A1B57100157021AD0021AD90 /* ALMapKitObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMapKitObjects.h; sourceTree = "<group>"; };
-		A1B57101157021AD0021AD90 /* ALMapKitObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMapKitObjects.m; sourceTree = "<group>"; };
 		A1D6B48D15262B5000A78472 /* Sevastopol.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sevastopol.gpx; sourceTree = "<group>"; };
 		A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		A1D6B4C8152701BC00A78472 /* ALRequest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ALRequest.plist; sourceTree = "<group>"; };
@@ -398,8 +395,6 @@
 				A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */,
 				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
 				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
-				A1B57100157021AD0021AD90 /* ALMapKitObjects.h */,
-				A1B57101157021AD0021AD90 /* ALMapKitObjects.m */,
 				A1B2ADE215176B2D0095FD7D /* ALViewController.h */,
 				A1B2ADE315176B2D0095FD7D /* ALViewController.m */,
 				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
@@ -586,7 +581,6 @@
 				A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */,
 				A118E96915226C7000C6C89D /* ALSMSList.m in Sources */,
 				A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */,
-				A1B57102157021AD0021AD90 /* ALMapKitObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
