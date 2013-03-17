@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ALSMSList : UIViewController 
+@interface ALSMSListController : UIViewController
 
 @end

@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALViewController;
-
 @interface ALAppDelegate : UIResponder <UIApplicationDelegate>
 
 @end

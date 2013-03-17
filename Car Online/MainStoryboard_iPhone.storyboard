@@ -1,109 +1,115 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IKp-a8-5Xx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Mc9-5u-ITm">
     <dependencies>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Main Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="muy-9c-LEh">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="Mc9-5u-ITm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QSg-Cm-n7u"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ncz-ql-hdb">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="IKp-a8-5Xx" kind="relationship" relationship="viewControllers" id="LdV-XT-URl"/>
+                        <segue destination="uta-xm-RTq" kind="relationship" relationship="viewControllers" id="u40-Q3-q6V"/>
+                        <segue destination="Zm1-1f-USR" kind="relationship" relationship="viewControllers" id="s4h-d0-VaR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nIF-Az-goT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-669" y="-491"/>
+        </scene>
+        <!--Location Controller-->
         <scene sceneID="smz-0T-jTD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oWL-mg-DdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="main" title="Main" id="IKp-a8-5Xx" userLabel="Main Controller" customClass="ALViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="location" id="IKp-a8-5Xx" userLabel="Location Controller" customClass="ALLocationController" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YHj-2Z-650">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" id="uBn-Uu-ruQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Location" id="gal-eY-GGF">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="KpC-mf-2SE">
+                                            <connections>
+                                                <action selector="loadData:" destination="IKp-a8-5Xx" id="mvN-JT-V7z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" id="sBF-7u-Y4i">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="IKp-a8-5Xx" id="xMT-Ov-fAI"/>
                                 </connections>
                             </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="11D-KG-VxQ">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="71-compass.png" style="plain" id="T4k-u1-KZX" userLabel="Track">
-                                        <connections>
-                                            <action selector="trackButtonPressed:" destination="IKp-a8-5Xx" id="hFh-iQ-Xjc"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rMc-Wr-z17" userLabel="Space"/>
-                                    <barButtonItem image="09-chat2.png" style="plain" id="UVV-93-ffl" userLabel="SMS">
-                                        <connections>
-                                            <segue destination="Zm1-1f-USR" kind="modal" identifier="sms" id="zRx-ZQ-4JM"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="55-network.png" style="plain" id="Il7-QD-BHQ" userLabel="Events">
-                                        <connections>
-                                            <segue destination="uta-xm-RTq" kind="modal" id="soU-wG-JM5"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem image="19-gear.png" style="plain" id="zMa-bq-v66" userLabel="Settings">
-                                        <connections>
-                                            <segue destination="Wsx-yo-DRw" kind="modal" identifier="settings" id="zEx-N2-ido"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="1Zd-gO-WGR" userLabel="Label 1">
-                                <rect key="frame" x="44" y="438" width="162" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rHz-ab-ogJ" userLabel="Label 2">
-                                <rect key="frame" x="44" y="455" width="162" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </label>
+                            <view contentMode="scaleToFill" id="CX0-Rk-PVF">
+                                <rect key="frame" x="0.0" y="44" width="320" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="1Zd-gO-WGR" userLabel="Label 1">
+                                        <rect key="frame" x="79" y="2" width="162" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rHz-ab-ogJ" userLabel="Label 2">
+                                        <rect key="frame" x="79" y="19" width="162" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.48999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ga8-nC-baj"/>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="6xA-ud-xRP"/>
+                    <navigationItem key="navigationItem" title="Location" id="Ga8-nC-baj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="pUE-B3-nSX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel1" destination="1Zd-gO-WGR" id="EFv-M6-Bpy"/>
                         <outlet property="descriptionLabel2" destination="rHz-ab-ogJ" id="ggq-MO-Zsv"/>
                         <outlet property="mapView" destination="sBF-7u-Y4i" id="0hW-lu-j4o"/>
-                        <outlet property="trackButton" destination="T4k-u1-KZX" id="nRM-Mx-fma"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWL-mg-DdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18" y="21"/>
+            <point key="canvasLocation" x="-144" y="-1110"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="Rt3-E0-Eo1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RXP-4R-fd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Wsx-yo-DRw" userLabel="Settings Controller" customClass="ALSettingsController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="api-key" id="Wsx-yo-DRw" userLabel="Settings Controller" customClass="ALSettingsController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eNs-w0-0AI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" id="4sN-WF-KqF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Settings" id="Tmt-Tl-spA">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3L4-iM-tRI">
-                                            <connections>
-                                                <action selector="cancelPressed:" destination="Wsx-yo-DRw" id="6jK-3h-Jm0"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gwe-5A-sDE">
+                                    <navigationItem title="User Account" id="Tmt-Tl-spA">
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="gwe-5A-sDE">
                                             <connections>
                                                 <action selector="donePressed:" destination="Wsx-yo-DRw" id="uVA-aT-0Ef"/>
                                             </connections>
@@ -146,39 +152,34 @@
                         <outlet property="activityIndicator" destination="sVp-rk-KEf" id="1Bq-gV-K4a"/>
                         <outlet property="apiKeyField" destination="0GF-rf-D2d" id="ZdV-hl-sgE"/>
                         <outlet property="doneButton" destination="gwe-5A-sDE" id="Uea-bW-iAh"/>
+                        <segue destination="Mc9-5u-ITm" kind="modal" identifier="mainscreen" modalTransitionStyle="crossDissolve" animates="NO" id="WOG-Ox-kCr"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RXP-4R-fd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="sVp-rk-KEf">
                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </objects>
-            <point key="canvasLocation" x="480" y="325"/>
+            <point key="canvasLocation" x="-1196" y="-491"/>
         </scene>
         <!--SMS Controller-->
         <scene sceneID="ZAY-fG-hTr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QEc-tt-Dhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Zm1-1f-USR" userLabel="SMS Controller" customClass="ALSMSList" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9fU-gj-8rY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <viewController storyboardIdentifier="sms" id="Zm1-1f-USR" userLabel="SMS Controller" customClass="ALSMSListController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sv7-H8-ZRN">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="0gm-At-lhi">
+                            <navigationBar contentMode="scaleToFill" id="UEc-Vq-inw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="SMS" id="6vh-uR-STc">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="BpW-jx-gDh">
-                                            <connections>
-                                                <action selector="close:" destination="Zm1-1f-USR" id="iBd-p6-Mkg"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="SMS" id="hbS-VJ-v3q"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gfg-B7-cx2">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Gfg-B7-cx2">
+                                <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.90259576610000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -188,40 +189,36 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hbS-VJ-v3q"/>
-                    <connections>
-                        <outlet property="tableView" destination="Gfg-B7-cx2" id="Baf-YL-BM6"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="YKh-nv-wpb"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEc-tt-Dhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867" y="31"/>
+            <point key="canvasLocation" x="-144" y="125"/>
         </scene>
         <!--Events Controller-->
         <scene sceneID="POp-i6-qQr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecz-qr-mmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="events" id="uta-xm-RTq" customClass="ALEventsController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7ZB-GU-Ryl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <view key="view" contentMode="scaleToFill" id="Wug-be-Luu">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" id="Zhc-3P-X3m">
+                            <navigationBar contentMode="scaleToFill" id="Tgl-gv-Ven">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Events" id="u0c-Nk-YAb">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="V12-cj-5aa">
+                                    <navigationItem title="Events" id="unv-Zv-Kog">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="AcV-Wz-g9m">
                                             <connections>
-                                                <action selector="close:" destination="Ecz-qr-mmf" id="emL-z8-BjR"/>
+                                                <action selector="loadData:" destination="uta-xm-RTq" id="BR7-7X-w6v"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="064-Hz-px7">
-                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="064-Hz-px7">
+                                <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.90259576610000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -231,22 +228,54 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="kyr-6Z-eBQ"/>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="tableView" destination="064-Hz-px7" id="nXk-e7-Kyk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecz-qr-mmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="-326"/>
+            <point key="canvasLocation" x="-144" y="-491"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="09-chat2.png" width="24" height="22"/>
-        <image name="19-gear.png" width="26" height="26"/>
-        <image name="55-network.png" width="24" height="24"/>
-        <image name="71-compass.png" width="24" height="24"/>
-    </resources>
+    <classes>
+        <class className="ALEventsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALEventsController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadData:"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ALLocationController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALLocationController.h"/>
+            <relationships>
+                <relationship kind="action" name="loadData:"/>
+                <relationship kind="action" name="trackButtonPressed:"/>
+                <relationship kind="outlet" name="descriptionLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="trackButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ALSMSListController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALSMSListController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ALSettingsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ALSettingsController.h"/>
+            <relationships>
+                <relationship kind="action" name="donePressed:"/>
+                <relationship kind="action" name="textFieldChanged:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="apiKeyField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -6,49 +6,57 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ALViewController.h"
+#import "ALLocationController.h"
 #import "ALRequest.h"
 #import "Convertions.h"
 #import <MapKit/MapKit.h>
 
 #define ZOOM_METTERS 250
 
-@interface ALViewController () <MKMapViewDelegate>
+@interface ALLocationController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel1;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel2;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *trackButton;
 
-- (void)loadData;
-- (void)updateAnnotation;
+- (IBAction)loadData:(id)sender;
 - (IBAction)trackButtonPressed:(id)sender;
+- (void)updateAnnotation;
 
 @end
 
-@implementation ALViewController
-
-@synthesize mapView, descriptionLabel1, descriptionLabel2, trackButton;
+@implementation ALLocationController
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
-}
-
-- (void)awakeFromNib {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:UIApplicationWillEnterForegroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"api-key-changed" object:nil];
-    [self loadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.descriptionLabel1.alpha = 0.;
     self.descriptionLabel2.alpha = 0.;
+    [self loadData:self];
 }
 
-- (void)loadData {
+#pragma mark - Private
+
+- (void)updateAnnotation {
+    for (MKShape *annotation in self.mapView.annotations) {
+        if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
+            if (self.mapView.userLocation.location) {
+                annotation.title = [NSString stringWithFormat:@"Car is %.0fm away", [self.mapView.userLocation.location distanceFromLocation:[[[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude] autorelease]]];
+            } else {
+                annotation.title = @"Car";
+            }
+        }
+    }
+}
+
+#pragma mark - Actions
+
+- (IBAction)loadData:(id)sender {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"]) {
-        [self performSelector:@selector(showSettings) withObject:nil afterDelay:1.];
         return;
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -79,6 +87,9 @@
                 [self updateAnnotation];
             }
             
+            // remove route
+            [self.mapView removeOverlays:self.mapView.overlays];
+            
             // add route
             if (points.count > 1) {
                 CLLocationCoordinate2D* coords = malloc(points.count * sizeof(CLLocationCoordinate2D));
@@ -108,22 +119,6 @@
             }
         });
     });
-}
-
-- (void)showSettings {
-    [self performSegueWithIdentifier:@"settings" sender:self];
-}
-
-- (void)updateAnnotation {
-    for (MKShape *annotation in self.mapView.annotations) {
-        if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
-            if (mapView.userLocation.location) {
-                annotation.title = [NSString stringWithFormat:@"Car is %.0fm away", [self.mapView.userLocation.location distanceFromLocation:[[[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude] autorelease]]];            
-            } else {
-                annotation.title = @"Car";
-            }
-        }
-    }
 }
 
 - (IBAction)trackButtonPressed:(id)sender {
@@ -172,29 +167,6 @@
         return pathView;
     }
     return nil;
-}
-
-#pragma Shake Detection
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self becomeFirstResponder];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self resignFirstResponder];
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (motion == UIEventSubtypeMotionShake) {
-        NSLog(@"shake detected");
-        [self loadData];
-    }
 }
 
 @end

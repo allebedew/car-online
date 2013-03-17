@@ -13,7 +13,21 @@
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:.7 alpha:1.]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithWhite:.6 alpha:1.]];
+    
+    /*
+    self.window = [[UIWindow alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"] != nil) {
+        self.window.rootViewController = [storyboard instantiateInitialViewController];
+    } else {
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"api-key"];
+    }
+    [self.window makeKeyAndVisible];
+    */
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"1e23019c8FdbffB2bec223311e1682" forKey:@"api-key"];
+    
     return YES;
 }
 

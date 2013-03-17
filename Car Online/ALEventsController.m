@@ -12,41 +12,25 @@
 
 @interface ALEventsController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *events;
 @property (strong, nonatomic) NSDictionary *eventTypes;
 
-- (IBAction)close:(id)sender;
-
-- (void)loadData;
+- (IBAction)loadData:(id)sender;
 
 @end
 
 @implementation ALEventsController
 
-@synthesize tableView, events, eventTypes;
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
-}
-
 - (void)viewDidLoad {
-    self.eventTypes = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventTypes" ofType:@"plist"]];
     [super viewDidLoad];
-    [self loadData];
+    self.eventTypes = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventTypes" ofType:@"plist"]];
+    [self loadData:self];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self becomeFirstResponder];
-}
+#pragma mark - Actions
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self resignFirstResponder];
-}
-
-- (void)loadData {
+- (IBAction)loadData:(id)sender {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *loadedEvents = [ALRequest runRequest:@"events"];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -59,10 +43,6 @@
     });
 }
 
-- (IBAction)close:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -71,7 +51,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont boldSystemFontOfSize:14.];
@@ -88,19 +68,6 @@
     if ([event objectForKey:@"groupSize"])
         cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingFormat:@" (%d %@)", [[event objectForKey:@"groupSize"] integerValue], NSLocalizedString(@"events", @"5 events")];
     return cell;
-}
-
-#pragma Shake Detection
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (motion == UIEventSubtypeMotionShake) {
-        NSLog(@"shake detected");
-        [self loadData];
-    }
 }
 
 @end

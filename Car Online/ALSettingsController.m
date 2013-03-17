@@ -12,31 +12,24 @@
 @interface ALSettingsController ()
 
 @property (nonatomic, strong) IBOutlet UITextField *apiKeyField;
-@property (nonatomic, strong) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-- (IBAction)cancelPressed:(id)sender;
+- (void)validateDoneButton;
+
 - (IBAction)donePressed:(id)sender;
 - (IBAction)textFieldChanged:(id)sender;
-- (void)updateDoneButton;
 
 @end
 
 @implementation ALSettingsController
-
-@synthesize apiKeyField, cancelButton, doneButton, activityIndicator;
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return interfaceOrientation == UIInterfaceOrientationPortrait;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.apiKeyField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"];
     self.apiKeyField.rightView = self.activityIndicator;
     self.apiKeyField.rightViewMode = UITextFieldViewModeAlways;
-    [self updateDoneButton];
+    [self validateDoneButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,12 +37,16 @@
     [self.apiKeyField becomeFirstResponder];
 }
 
-- (void)updateDoneButton {
+#pragma mark - Private
+
+- (void)validateDoneButton {
     self.doneButton.enabled = self.apiKeyField.text.length > 0;
 }
 
-- (IBAction)cancelPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+#pragma mark - User Actions
+
+- (IBAction)textFieldChanged:(id)sender {
+    [self validateDoneButton];
 }
 
 - (IBAction)donePressed:(id)sender {
@@ -59,13 +56,11 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.apiKeyField.text forKey:@"api-key"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.activityIndicator startAnimating];
-//    self.cancelButton.enabled = NO;
     self.doneButton.enabled = NO;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *data = [ALRequest runRequest:@"telemetry"];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];
-            self.cancelButton.enabled = YES;
             self.doneButton.enabled = YES;
             if (!data) {
                 if (oldValue) {
@@ -75,14 +70,9 @@
                 }
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"api-key-changed" object:self];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self performSegueWithIdentifier:@"mainscreen" sender:self];
         });
     });
-}
-
-- (IBAction)textFieldChanged:(id)sender {
-    [self updateDoneButton];
 }
 
 @end

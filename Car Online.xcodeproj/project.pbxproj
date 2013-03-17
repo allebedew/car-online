@@ -29,7 +29,7 @@
 		A118E962152264F500C6C89D /* user-sms.gif in Resources */ = {isa = PBXBuildFile; fileRef = A118E950152264F500C6C89D /* user-sms.gif */; };
 		A118E963152264F500C6C89D /* user-call.gif in Resources */ = {isa = PBXBuildFile; fileRef = A118E951152264F500C6C89D /* user-call.gif */; };
 		A118E9651522668D00C6C89D /* connect-time.gif in Resources */ = {isa = PBXBuildFile; fileRef = A118E9641522668D00C6C89D /* connect-time.gif */; };
-		A118E96915226C7000C6C89D /* ALSMSList.m in Sources */ = {isa = PBXBuildFile; fileRef = A118E96715226C7000C6C89D /* ALSMSList.m */; };
+		A118E96915226C7000C6C89D /* ALSMSListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A118E96715226C7000C6C89D /* ALSMSListController.m */; };
 		A118E96F15226CCF00C6C89D /* SMSList.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118E96E15226CCF00C6C89D /* SMSList.plist */; };
 		A118E97115226FA000C6C89D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A118E97015226FA000C6C89D /* MessageUI.framework */; };
 		A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A118E97415237BC200C6C89D /* ALSettingsController.m */; };
@@ -100,7 +100,7 @@
 		A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */; };
 		A1B2ADDD15176B2D0095FD7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADDC15176B2D0095FD7D /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A1B2ADE415176B2D0095FD7D /* ALViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE315176B2D0095FD7D /* ALViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE315176B2D0095FD7D /* ALLocationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; };
 		A1B2ADF915178EE70095FD7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADF815178EE70095FD7D /* MapKit.framework */; };
@@ -137,8 +137,8 @@
 		A118E950152264F500C6C89D /* user-sms.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "user-sms.gif"; sourceTree = "<group>"; };
 		A118E951152264F500C6C89D /* user-call.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "user-call.gif"; sourceTree = "<group>"; };
 		A118E9641522668D00C6C89D /* connect-time.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "connect-time.gif"; sourceTree = "<group>"; };
-		A118E96615226C7000C6C89D /* ALSMSList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSMSList.h; sourceTree = "<group>"; };
-		A118E96715226C7000C6C89D /* ALSMSList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSMSList.m; sourceTree = "<group>"; };
+		A118E96615226C7000C6C89D /* ALSMSListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSMSListController.h; sourceTree = "<group>"; };
+		A118E96715226C7000C6C89D /* ALSMSListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSMSListController.m; sourceTree = "<group>"; };
 		A118E96E15226CCF00C6C89D /* SMSList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SMSList.plist; sourceTree = "<group>"; };
 		A118E97015226FA000C6C89D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A118E97315237BC200C6C89D /* ALSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSettingsController.h; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		A1B2ADDE15176B2D0095FD7D /* Car Online-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Car Online-Prefix.pch"; sourceTree = "<group>"; };
 		A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAppDelegate.h; sourceTree = "<group>"; };
 		A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAppDelegate.m; sourceTree = "<group>"; };
-		A1B2ADE215176B2D0095FD7D /* ALViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALViewController.h; sourceTree = "<group>"; };
-		A1B2ADE315176B2D0095FD7D /* ALViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALViewController.m; sourceTree = "<group>"; };
+		A1B2ADE215176B2D0095FD7D /* ALLocationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALLocationController.h; sourceTree = "<group>"; };
+		A1B2ADE315176B2D0095FD7D /* ALLocationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALLocationController.m; sourceTree = "<group>"; };
 		A1B2ADF0151771150095FD7D /* ALRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRequest.h; sourceTree = "<group>"; };
 		A1B2ADF1151771150095FD7D /* ALRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRequest.m; sourceTree = "<group>"; };
 		A1B2ADF315177CE40095FD7D /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		A1D6B4C8152701BC00A78472 /* ALRequest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ALRequest.plist; sourceTree = "<group>"; };
 		A1F20803169570320066B2D9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		A1F20806169574650066B2D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A1F20806169574650066B2D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,10 +357,26 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		A1ACEACB16F5D8F000D15ACB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		A1ACEACC16F5DF6800D15ACB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A118E93D1522648F00C6C89D /* EventTypes.plist */,
+				A118E96E15226CCF00C6C89D /* SMSList.plist */,
+				A1F20806169574650066B2D9 /* Default-568h@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A1B2ADC115176B2C0095FD7D = {
 			isa = PBXGroup;
 			children = (
-				A1F20806169574650066B2D9 /* Default-568h@2x.png */,
 				A1B2ADD615176B2D0095FD7D /* Car Online */,
 				A1B2ADCF15176B2D0095FD7D /* Frameworks */,
 				A1B2ADCD15176B2D0095FD7D /* Products */,
@@ -392,20 +408,20 @@
 		A1B2ADD615176B2D0095FD7D /* Car Online */ = {
 			isa = PBXGroup;
 			children = (
-				A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */,
 				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
 				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
-				A1B2ADE215176B2D0095FD7D /* ALViewController.h */,
-				A1B2ADE315176B2D0095FD7D /* ALViewController.m */,
-				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
-				A10DE77F1517D9BD000A7EEA /* ALEventsController.m */,
-				A118E93D1522648F00C6C89D /* EventTypes.plist */,
-				A118E96615226C7000C6C89D /* ALSMSList.h */,
-				A118E96715226C7000C6C89D /* ALSMSList.m */,
-				A118E96E15226CCF00C6C89D /* SMSList.plist */,
+				A1ACEACB16F5D8F000D15ACB /* Controller */,
+				A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */,
 				A118E97315237BC200C6C89D /* ALSettingsController.h */,
 				A118E97415237BC200C6C89D /* ALSettingsController.m */,
+				A1B2ADE215176B2D0095FD7D /* ALLocationController.h */,
+				A1B2ADE315176B2D0095FD7D /* ALLocationController.m */,
+				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
+				A10DE77F1517D9BD000A7EEA /* ALEventsController.m */,
+				A118E96615226C7000C6C89D /* ALSMSListController.h */,
+				A118E96715226C7000C6C89D /* ALSMSListController.m */,
 				A10DE7891517EB99000A7EEA /* Model */,
+				A1ACEACC16F5DF6800D15ACB /* Resources */,
 				A118E93F152264D400C6C89D /* Event Icons */,
 				A15B5A1A1570C1BE00667BCB /* Icons */,
 				A1B2ADD715176B2D0095FD7D /* Supporting Files */,
@@ -574,12 +590,12 @@
 			files = (
 				A1B2ADDD15176B2D0095FD7D /* main.m in Sources */,
 				A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */,
-				A1B2ADE415176B2D0095FD7D /* ALViewController.m in Sources */,
+				A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */,
 				A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */,
 				A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */,
 				A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */,
 				A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */,
-				A118E96915226C7000C6C89D /* ALSMSList.m in Sources */,
+				A118E96915226C7000C6C89D /* ALSMSListController.m in Sources */,
 				A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
