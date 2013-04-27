@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ALEventsController : UIViewController
+@interface ALEventsController : UITableViewController
 
 @end

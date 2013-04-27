@@ -10,11 +10,13 @@
 #import "ALRequest.h"
 #import "Convertions.h"
 
-@interface ALEventsController () <UITableViewDelegate, UITableViewDataSource>
+@interface ALEventsController ()
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *events;
-@property (strong, nonatomic) NSDictionary *eventTypes;
+@property (nonatomic, weak) IBOutlet UILabel *updatedLabel;
+@property (nonatomic, weak) NSTimer *updateTimer;
+@property (nonatomic, strong) NSDate *updatedDate;
+@property (nonatomic, strong) NSArray *events;
+@property (nonatomic, strong) NSDictionary *eventTypes;
 
 - (IBAction)loadData:(id)sender;
 
@@ -24,19 +26,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.refreshControl addTarget:self action:@selector(loadData:) forControlEvents:UIControlEventValueChanged];    
     self.eventTypes = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EventTypes" ofType:@"plist"]];
     [self loadData:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self updateUpdatedLabel];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:1. target:self selector:@selector(updateUpdatedLabel) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.updateTimer invalidate];
+}
+
+- (void)updateUpdatedLabel {
+    self.updatedLabel.text = [NSString stringWithFormat:@"Updated %@", self.updatedDate ? [self.updatedDate agoFromNow] : @"never"];
 }
 
 #pragma mark - Actions
 
 - (IBAction)loadData:(id)sender {
+    [self.refreshControl beginRefreshing];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *loadedEvents = [ALRequest runRequest:@"events"];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (!loadedEvents)
+            [self.refreshControl endRefreshing];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+            if (!loadedEvents) {
                 return;
+            }
             NSLog(@"%d events loaded", loadedEvents.count);
+            self.updatedDate = [NSDate date];
+            [self updateUpdatedLabel];
             self.events = loadedEvents;
             [self.tableView reloadData];
         });
@@ -50,23 +75,19 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:14.];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:11.];
-    }
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell"];
     NSDictionary *event = [self.events objectAtIndex:indexPath.row];
     NSDictionary *eventInfo = [self.eventTypes objectForKey:[[event objectForKey:@"type"] stringValue]];
     cell.textLabel.text = [eventInfo objectForKey:@"title"];
-    if ([eventInfo objectForKey:@"icon"])
+    if ([eventInfo objectForKey:@"icon"]) {
         cell.imageView.image = [UIImage imageNamed:[[eventInfo objectForKey:@"icon"] stringByAppendingPathExtension:@"gif"]];
-    else
+    } else {
         cell.imageView.image = nil;
+    }
     cell.detailTextLabel.text = [[event objectForKey:@"datetime"] formattedString];
-    if ([event objectForKey:@"groupSize"])
+    if ([event objectForKey:@"groupSize"]) {
         cell.detailTextLabel.text = [cell.detailTextLabel.text stringByAppendingFormat:@" (%d %@)", [[event objectForKey:@"groupSize"] integerValue], NSLocalizedString(@"events", @"5 events")];
+    }
     return cell;
 }
 

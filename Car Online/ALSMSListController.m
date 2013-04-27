@@ -9,9 +9,8 @@
 #import "ALSMSListCOntroller.h"
 #import <MessageUI/MessageUI.h>
 
-@interface ALSMSListController () <MFMessageComposeViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ALSMSListController () <MFMessageComposeViewControllerDelegate>
 
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *smsList;
 
 @end
@@ -23,11 +22,6 @@
     self.smsList = [[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SMSList" ofType:@"plist"]] objectForKey:@"sms-list"];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-}
-
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -35,25 +29,18 @@
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [[self.smsList objectAtIndex:section] objectForKey:@"title"];
+    return self.smsList[section][@"title"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[self.smsList objectAtIndex:section] objectForKey:@"items"] count];
+    return [self.smsList[section][@"items"] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [aTableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:14.];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:11.];
-    }
-
-    NSDictionary *info = [[[self.smsList objectAtIndex:indexPath.section] objectForKey:@"items"] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [info objectForKey:@"text"];
-    cell.detailTextLabel.text = [info objectForKey:@"description"];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    NSDictionary *info = self.smsList[indexPath.section][@"items"][indexPath.row];
+    cell.textLabel.text = info[@"text"];
+    cell.detailTextLabel.text = info[@"description"];
     return cell;
 }
 
@@ -62,11 +49,11 @@
         [aTableView deselectRowAtIndexPath:indexPath animated:YES];
         return;
     }
-    NSDictionary *info = [[[self.smsList objectAtIndex:indexPath.section] objectForKey:@"items"] objectAtIndex:indexPath.row];
+    NSDictionary *info = self.smsList[indexPath.section][@"items"][indexPath.row];
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
-    messageController.body = [info objectForKey:@"text"];
+    messageController.body = info[@"text"];
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"phone-number"]) {
-        messageController.recipients = [NSArray arrayWithObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"phone-number"]];
+        messageController.recipients = @[[[NSUserDefaults standardUserDefaults] objectForKey:@"phone-number"]];
     }
     messageController.messageComposeDelegate = self;
     [self presentViewController:messageController animated:YES completion:nil];
