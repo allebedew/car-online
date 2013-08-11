@@ -103,11 +103,11 @@
 		A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD015176B2D0095FD7D /* UIKit.framework */; };
 		A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD215176B2D0095FD7D /* Foundation.framework */; };
 		A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */; };
-		A1B2ADDD15176B2D0095FD7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADDC15176B2D0095FD7D /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE315176B2D0095FD7D /* ALLocationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; };
+		A1B2ADDD15176B2D0095FD7D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADDC15176B2D0095FD7D /* main.m */; };
+		A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */; };
+		A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADE315176B2D0095FD7D /* ALLocationController.m */; };
+		A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; };
+		A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A1B2ADF915178EE70095FD7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADF815178EE70095FD7D /* MapKit.framework */; };
 		A1B2ADFB151798D20095FD7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADFA151798D10095FD7D /* CoreLocation.framework */; };
 		A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B48D15262B5000A78472 /* Sevastopol.gpx */; };
@@ -374,6 +374,14 @@
 		A1ACEACB16F5D8F000D15ACB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A118E97315237BC200C6C89D /* ALSettingsController.h */,
+				A118E97415237BC200C6C89D /* ALSettingsController.m */,
+				A1B2ADE215176B2D0095FD7D /* ALLocationController.h */,
+				A1B2ADE315176B2D0095FD7D /* ALLocationController.m */,
+				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
+				A10DE77F1517D9BD000A7EEA /* ALEventsController.m */,
+				A118E96615226C7000C6C89D /* ALSMSListController.h */,
+				A118E96715226C7000C6C89D /* ALSMSListController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -381,6 +389,7 @@
 		A1ACEACC16F5DF6800D15ACB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */,
 				A1858B56172C90EE0061AFA0 /* Default@2x.png */,
 				A1F20806169574650066B2D9 /* Default-568h@2x.png */,
 				A118E93D1522648F00C6C89D /* EventTypes.plist */,
@@ -426,15 +435,6 @@
 				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
 				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
 				A1ACEACB16F5D8F000D15ACB /* Controller */,
-				A1D6B48F15262B6D00A78472 /* MainStoryboard_iPhone.storyboard */,
-				A118E97315237BC200C6C89D /* ALSettingsController.h */,
-				A118E97415237BC200C6C89D /* ALSettingsController.m */,
-				A1B2ADE215176B2D0095FD7D /* ALLocationController.h */,
-				A1B2ADE315176B2D0095FD7D /* ALLocationController.m */,
-				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
-				A10DE77F1517D9BD000A7EEA /* ALEventsController.m */,
-				A118E96615226C7000C6C89D /* ALSMSListController.h */,
-				A118E96715226C7000C6C89D /* ALSMSListController.m */,
 				A10DE7891517EB99000A7EEA /* Model */,
 				A1ACEACC16F5DF6800D15ACB /* Resources */,
 				A118E93F152264D400C6C89D /* Event Icons */,
@@ -626,7 +626,6 @@
 		A1B2ADEB15176B2D0095FD7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -634,13 +633,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -653,7 +650,6 @@
 		A1B2ADEC15176B2D0095FD7D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -675,14 +671,12 @@
 		A1B2ADEE15176B2D0095FD7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online/Car Online-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Car Online/Car Online-Info.plist";
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};

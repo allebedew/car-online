@@ -14,6 +14,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *apiKeyField;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *text;
 
 - (void)validateDoneButton;
 

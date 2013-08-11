@@ -23,7 +23,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel2;
 
 @property (nonatomic, strong) MKPointAnnotation *carAnnotation;
-@property (nonatomic, strong) NSTimer *updateTimer;
+@property (nonatomic, weak) NSTimer *updateTimer;
 @property (nonatomic, strong) NSDate *updatedDate;
 
 - (IBAction)loadData:(id)sender;
@@ -59,7 +59,7 @@
 
 - (void)updateAnnotation {
     if (self.mapView.userLocation.location) {
-        CLLocationDistance distance = [self.mapView.userLocation.location distanceFromLocation:[[[CLLocation alloc] initWithLatitude:self.carAnnotation.coordinate.latitude longitude:self.carAnnotation.coordinate.longitude] autorelease]];
+        CLLocationDistance distance = [self.mapView.userLocation.location distanceFromLocation:[[CLLocation alloc] initWithLatitude:self.carAnnotation.coordinate.latitude longitude:self.carAnnotation.coordinate.longitude]];
         self.carAnnotation.title = [NSString stringWithFormat:@"Car is %.0fm away", distance];
     } else {
         self.carAnnotation.title = @"Car";
@@ -144,7 +144,7 @@
     if (annotation == self.carAnnotation) {
         MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cell"];
         if (!pin) {
-            [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
             pin.canShowCallout = YES;
             pin.animatesDrop = YES;
         } else {
@@ -157,7 +157,7 @@
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
     if ([overlay isKindOfClass:[MKPolyline class]]) {
-        MKPolylineView *pathView = [[[MKPolylineView alloc] initWithPolyline:overlay] autorelease];
+        MKPolylineView *pathView = [[MKPolylineView alloc] initWithPolyline:overlay];
         pathView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:.5];
         pathView.lineWidth = 5.;
         return pathView;
