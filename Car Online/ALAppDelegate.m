@@ -18,12 +18,14 @@
     // Loading UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"] == nil) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"] != nil) {
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"api-key"];
     } else {
         self.window.rootViewController = [storyboard instantiateInitialViewController];
     }
     [self.window makeKeyAndVisible];
+    
+    NSLog(@"Loc: %@", NSLocalizedString(@"Localization test", nil));
     
     return YES;
 }
