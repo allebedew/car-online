@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString* const ALRequestErrorDomain;
+
+typedef NS_ENUM(NSInteger, ALRequestCommand) {
+    ALRequestCommandPoints,
+    ALRequestCommandTelemetry,
+    ALRequestCommandEvents
+};
+
+typedef void(^ALRequestCallback)(BOOL success, id data);
+
 @interface ALRequest : NSObject
 
-+ (NSArray*)runRequest:(NSString*)type;
++ (ALRequest*)requestWithType:(ALRequestCommand)command callback:(ALRequestCallback)callback;
 
 @end

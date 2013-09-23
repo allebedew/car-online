@@ -14,6 +14,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *apiKeyField;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneButton;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *text;
 
 - (void)validateDoneButton;
 
@@ -57,22 +58,20 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.activityIndicator startAnimating];
     self.doneButton.enabled = NO;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray *data = [ALRequest runRequest:@"telemetry"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.activityIndicator stopAnimating];
-            self.doneButton.enabled = YES;
-            if (!data) {
-                if (oldValue) {
-                    [[NSUserDefaults standardUserDefaults] setObject:oldValue forKey:@"api-key"];
-                } else {
-                    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"api-key"];
-                }
-                [[NSUserDefaults standardUserDefaults] synchronize];
+
+    [ALRequest requestWithType:ALRequestCommandTelemetry callback:^(BOOL success, id data) {
+        [self.activityIndicator stopAnimating];
+        self.doneButton.enabled = YES;
+        if (!success) {
+            if (oldValue) {
+                [[NSUserDefaults standardUserDefaults] setObject:oldValue forKey:@"api-key"];
+            } else {
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"api-key"];
             }
-            [self performSegueWithIdentifier:@"mainscreen" sender:self];
-        });
-    });
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        [self performSegueWithIdentifier:@"mainscreen" sender:self];
+    }];
 }
 
 @end

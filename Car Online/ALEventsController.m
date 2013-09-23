@@ -51,21 +51,22 @@
 - (IBAction)loadData:(id)sender {
     [self.refreshControl beginRefreshing];
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray *loadedEvents = [ALRequest runRequest:@"events"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.refreshControl endRefreshing];
-            self.navigationItem.rightBarButtonItem.enabled = YES;
-            if (!loadedEvents) {
-                return;
-            }
-            NSLog(@"%d events loaded", loadedEvents.count);
-            self.updatedDate = [NSDate date];
-            [self updateUpdatedLabel];
-            self.events = loadedEvents;
-            [self.tableView reloadData];
-        });
-    });
+
+    [ALRequest requestWithType:ALRequestCommandEvents callback:^(BOOL success, id data) {
+        NSArray *loadedEvents = data;
+
+        [self.refreshControl endRefreshing];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        if (!loadedEvents) {
+            return;
+        }
+        NSLog(@"%d events loaded", loadedEvents.count);
+        self.updatedDate = [NSDate date];
+        [self updateUpdatedLabel];
+        self.events = loadedEvents;
+        [self.tableView reloadData];
+
+    }];
 }
 
 #pragma mark - Table view data source

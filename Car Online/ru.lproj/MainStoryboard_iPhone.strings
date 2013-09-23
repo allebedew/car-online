@@ -1,0 +1,57 @@
+
+/* Class = "IBUILabel"; text = "You can find it on car-online.ru → Settings → Key for API"; ObjectID = "024-1q-s6G"; */
+"024-1q-s6G.text" = "You can find it on car-online.ru → Settings → Key for API";
+
+/* Class = "IBUILabel"; text = "Description label"; ObjectID = "1Zd-gO-WGR"; */
+"1Zd-gO-WGR.text" = "Description label";
+
+/* Class = "IBUILabel"; text = "Events"; ObjectID = "C1s-xY-c2e"; */
+"C1s-xY-c2e.text" = "Events";
+
+/* Class = "IBUILabel"; text = "Location"; ObjectID = "ITg-L9-mjJ"; */
+"ITg-L9-mjJ.text" = "Location";
+
+/* Class = "IBUILabel"; text = "API Key"; ObjectID = "Omr-VY-qeC"; */
+"Omr-VY-qeC.text" = "Ключ API";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "Pat-wX-3Di"; */
+"Pat-wX-3Di.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "QrY-Vn-Hog"; */
+"QrY-Vn-Hog.text" = "Title";
+
+/* Class = "IBUITableViewController"; title = "SMS"; ObjectID = "R0S-JU-2wL"; */
+"R0S-JU-2wL.title" = "SMS";
+
+/* Class = "IBUITableViewController"; title = "Events"; ObjectID = "TKz-Th-oCh"; */
+"TKz-Th-oCh.title" = "Events";
+
+/* Class = "IBUINavigationItem"; title = "User Account"; ObjectID = "Tmt-Tl-spA"; */
+"Tmt-Tl-spA.title" = "Аккаунт пользователя";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "aJD-nf-8KN"; */
+"aJD-nf-8KN.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Updated 2 hour ago"; ObjectID = "b2e-z1-x0N"; */
+"b2e-z1-x0N.text" = "Updated 2 hour ago";
+
+/* Class = "IBUITabBarItem"; title = "Events"; ObjectID = "eFV-rg-e4O"; */
+"eFV-rg-e4O.title" = "Events";
+
+/* Class = "IBUINavigationItem"; title = "SMS"; ObjectID = "g9K-iM-vb2"; */
+"g9K-iM-vb2.title" = "SMS";
+
+/* Class = "IBUILabel"; text = "Updated 2 hour ago"; ObjectID = "gt5-qm-Dct"; */
+"gt5-qm-Dct.text" = "Updated 2 hour ago";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "hP9-li-Q59"; */
+"hP9-li-Q59.text" = "Title";
+
+/* Class = "IBUITabBarItem"; title = "SMS"; ObjectID = "iJc-sT-t3G"; */
+"iJc-sT-t3G.title" = "SMS";
+
+/* Class = "IBUILabel"; text = "Description label"; ObjectID = "rHz-ab-ogJ"; */
+"rHz-ab-ogJ.text" = "Description label";
+
+/* Class = "IBUITabBarItem"; title = "Location"; ObjectID = "yKf-cZ-kjF"; */
+"yKf-cZ-kjF.title" = "Location";

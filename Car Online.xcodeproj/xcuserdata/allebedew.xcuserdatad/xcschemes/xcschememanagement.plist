@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Car Online Desktop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Car Online.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>A1B2ADCB15176B2D0095FD7D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1EA52C317CBA3EE00475C5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1EA52E217CBA3EE00475C5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
