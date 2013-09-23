@@ -28,8 +28,6 @@
     }
     [self.window makeKeyAndVisible];
     
-    NSLog(@"Loc: %@", NSLocalizedString(@"Localization test", nil));
-    
     return YES;
 }
 

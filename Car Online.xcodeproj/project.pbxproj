@@ -91,6 +91,8 @@
 		A146998715239BE8001C7DD7 /* heavy-shock.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997415239BE8001C7DD7 /* heavy-shock.gif */; };
 		A146998815239BE8001C7DD7 /* light-shock.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997515239BE8001C7DD7 /* light-shock.gif */; };
 		A146998915239BE8001C7DD7 /* ext-zone-microwave.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997615239BE8001C7DD7 /* ext-zone-microwave.gif */; };
+		A17367A417D9F11F0044DA9B /* ALMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A17367A217D9F11F0044DA9B /* ALMainViewController.m */; };
+		A17367A517D9F11F0044DA9B /* ALMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17367A317D9F11F0044DA9B /* ALMainViewController.xib */; };
 		A174180617BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A174180817BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard */; };
 		A174180E17BA3DF1003D33E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A174181017BA3DF1003D33E4 /* Localizable.strings */; };
 		A1858B4C172C7DDF0061AFA0 /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B46172C7DDF0061AFA0 /* events.png */; };
@@ -214,6 +216,9 @@
 		A146997415239BE8001C7DD7 /* heavy-shock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "heavy-shock.gif"; sourceTree = "<group>"; };
 		A146997515239BE8001C7DD7 /* light-shock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "light-shock.gif"; sourceTree = "<group>"; };
 		A146997615239BE8001C7DD7 /* ext-zone-microwave.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ext-zone-microwave.gif"; sourceTree = "<group>"; };
+		A17367A117D9F11F0044DA9B /* ALMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMainViewController.h; sourceTree = "<group>"; };
+		A17367A217D9F11F0044DA9B /* ALMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMainViewController.m; sourceTree = "<group>"; };
+		A17367A317D9F11F0044DA9B /* ALMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALMainViewController.xib; sourceTree = "<group>"; };
 		A174180717BA3B7D003D33E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		A174180B17BA3BA1003D33E4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
 		A174180F17BA3DF1003D33E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -406,6 +411,16 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		A17367A017D9EEFF0044DA9B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A17367A117D9F11F0044DA9B /* ALMainViewController.h */,
+				A17367A217D9F11F0044DA9B /* ALMainViewController.m */,
+				A17367A317D9F11F0044DA9B /* ALMainViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		A1ACEACB16F5D8F000D15ACB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +522,7 @@
 		A1EA52CB17CBA3EE00475C5E /* Car Online Desktop */ = {
 			isa = PBXGroup;
 			children = (
+				A17367A017D9EEFF0044DA9B /* Controllers */,
 				A1EA52F917CBA5B100475C5E /* Resources */,
 				A1EA52CC17CBA3EE00475C5E /* Supporting Files */,
 				A1EA52D717CBA3EE00475C5E /* ALAppDelegate.h */,
@@ -730,6 +746,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A17367A517D9F11F0044DA9B /* ALMainViewController.xib in Resources */,
 				A1EA52D017CBA3EE00475C5E /* InfoPlist.strings in Resources */,
 				A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */,
 				A1EA52D617CBA3EE00475C5E /* Credits.rtf in Resources */,
@@ -762,6 +779,7 @@
 			files = (
 				A1EA52D217CBA3EE00475C5E /* main.m in Sources */,
 				A1EA52D917CBA3EE00475C5E /* ALAppDelegate.m in Sources */,
+				A17367A417D9F11F0044DA9B /* ALMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,6 +1009,7 @@
 				A1EA52F317CBA3EE00475C5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

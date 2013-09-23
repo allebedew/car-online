@@ -9,82 +9,122 @@
 #import "ALRequest.h"
 #import "GDataXMLNode.h"
 
-@implementation ALRequest
-
-#define LOG NO
+#define LOG YES
 #define SERVER_TIME_ZONE 4
 
-+ (void)processErrorString:(NSString*)errorString {
-    NSLog(@"Request error: %@", errorString);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    });
+NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
+
+@interface ALRequest () <NSURLConnectionDelegate>
+
+@property (nonatomic, assign) ALRequestCommand command;
+@property (nonatomic, strong) ALRequestCallback callback;
+@property (nonatomic, strong) NSString *commandName;
+@property (nonatomic, strong) NSDictionary *commandInfo;
+@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic, strong) NSMutableData *receivedData;
+
+@end
+
+@implementation ALRequest
+
++ (ALRequest*)requestWithType:(ALRequestCommand)command callback:(ALRequestCallback)callback {
+    ALRequest *request = [[ALRequest alloc] initWithType:command callback:callback];
+    [request run];
+    return request;
 }
 
-+ (NSArray*)runRequest:(NSString*)type {
-    NSAssert(type != nil, @"No request type", type);
-    NSDictionary *requestInfo = [[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:NSStringFromClass([self class]) ofType:@"plist"]] objectForKey:@"request-types"] objectForKey:type];
-    NSAssert(requestInfo != nil, @"Unknown request type (%@)", type);
-    NSAssert([[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"] != nil, @"No API Key");
-    
-    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://api.car-online.ru/do?skey=%@&data=%@&content=xml", [[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"], [requestInfo objectForKey:@"data-param-value"]];
-    NSLog(@"Requesting %@", urlString);
-    NSError *err = nil;
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString] options:0 error:&err];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    if (err) {
-        [self processErrorString:err.localizedDescription];
-        return nil;
+- (id)initWithType:(ALRequestCommand)command callback:(ALRequestCallback)callback {
+    self = [super init];
+    if (self) {
+        self.command = command;
+        self.callback = callback;
+        switch (command) {
+            case ALRequestCommandEvents:
+                self.commandName = @"events"; break;
+            case ALRequestCommandPoints:
+                self.commandName = @"points"; break;
+            case ALRequestCommandTelemetry:
+                self.commandName = @"telemetry"; break;
+            default:
+                NSLog(@"%@: command not supported (%d)", [self class], self.command);
+                return nil;
+        }
+        static NSDictionary *config = nil;
+        if (!config) {
+            config = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:NSStringFromClass([self class]) ofType:@"plist"]] objectForKey:@"request-types"];
+        }
+        self.commandInfo = config[self.commandName];
+        if (!self.commandInfo) {
+            NSLog(@"%@: can't find config for command (%@)", [self class], self.commandName);
+            return nil;
+        }
     }
-    
+    return self;
+}
+
+- (void)run {
+    NSString *apiKey = [[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"];
+    NSAssert(apiKey != nil, @"No API Key");
+    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://api.car-online.ru/do?skey=%@&data=%@&content=xml", apiKey, self.commandName];
     if (LOG)
-        NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    
-    GDataXMLDocument *xml = [[GDataXMLDocument alloc] initWithData:data options:0 error:&err];
-    
-    if (err || [xml.rootElement.name isEqual:@"error"]) {
-        [self processErrorString:err ? err.localizedDescription : xml.rootElement.stringValue];
-        return nil;
+        NSLog(@"%@ loading url %@", [self class], urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    [self.connection start];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)processReceivedData {
+    NSError *error = nil;
+    GDataXMLDocument *xml = [[GDataXMLDocument alloc] initWithData:self.receivedData options:0 error:&error];
+    if (error) {
+        [self processError:error];
+        return;
+    }
+    if ([xml.rootElement.name isEqual:@"error"]) {
+        NSError *error = [NSError errorWithDomain:ALRequestErrorDomain code:-1 userInfo:nil];
+        [self processError:error];
+        return;
     }
 
     // Parsing
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"ddMMyyyy_HHmmss"];
     [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:60*60*SERVER_TIME_ZONE]];
-    
+
     NSMutableArray *result = [NSMutableArray array];
     for (GDataXMLElement *element in xml.rootElement.children) {
         if (![element isKindOfClass:[GDataXMLElement class]])
             continue;
         NSMutableDictionary *resultItem = [NSMutableDictionary dictionary];
-        
+
         for (GDataXMLNode *attribute in element.attributes) {
-            if ([[requestInfo objectForKey:@"ignore-attributes"] containsObject:attribute.name]) {
+            if ([[self.commandInfo objectForKey:@"ignore-attributes"] containsObject:attribute.name]) {
                 continue;
-            } else if ([[requestInfo objectForKey:@"date-attributes"] containsObject:attribute.name]) {
+            } else if ([[self.commandInfo objectForKey:@"date-attributes"] containsObject:attribute.name]) {
                 [resultItem setObject:[formatter dateFromString:attribute.stringValue] forKey:attribute.name];
-            } else if ([[requestInfo objectForKey:@"double-attributes"] containsObject:attribute.name]) {
+            } else if ([[self.commandInfo objectForKey:@"double-attributes"] containsObject:attribute.name]) {
                 [resultItem setObject:[NSNumber numberWithDouble:attribute.stringValue.doubleValue] forKey:attribute.name];
-            } else if ([[requestInfo objectForKey:@"integer-attributes"] containsObject:attribute.name]) {
+            } else if ([[self.commandInfo objectForKey:@"integer-attributes"] containsObject:attribute.name]) {
                 [resultItem setObject:[NSNumber numberWithInteger:attribute.stringValue.integerValue] forKey:attribute.name];
             } else {
                 [resultItem setObject:attribute.stringValue forKey:attribute.name];
             }
         }
-        
+
         // filtering
-        for (NSString *filterKey in [requestInfo objectForKey:@"filter"]) {
-            if ([[resultItem objectForKey:filterKey] isEqual:[[requestInfo objectForKey:@"filter"] objectForKey:filterKey]]) {
+        for (NSString *filterKey in [self.commandInfo objectForKey:@"filter"]) {
+            if ([[resultItem objectForKey:filterKey] isEqual:[[self.commandInfo objectForKey:@"filter"] objectForKey:filterKey]]) {
                 resultItem = nil;
                 break;
             }
         }
-        
+
         // grouping
-        if (resultItem && [requestInfo objectForKey:@"group-by"]) {
+        if (resultItem && [self.commandInfo objectForKey:@"group-by"]) {
             BOOL isEqualToLast = YES;
-            for (NSString *groupKey in [requestInfo objectForKey:@"group-by"]) {
+            for (NSString *groupKey in [self.commandInfo objectForKey:@"group-by"]) {
                 if (![[resultItem objectForKey:groupKey] isEqual:[[result lastObject] objectForKey:groupKey]]) {
                     isEqualToLast = NO;
                     break;
@@ -100,11 +140,40 @@
         if (resultItem)
             [result addObject:resultItem];
     }
-    
+
     if (LOG)
-        NSLog(@"%@", result);
-    
-    return result;
+        NSLog(@"%@ got result %@", [self class], result);
+
+    if (self.callback) {
+        self.callback(YES, result);
+    }
+}
+
+- (void)processError:(NSError*)error {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    if (self.callback) {
+        self.callback(NO, nil);
+    }
+}
+
+#pragma mark - NSURLConnectionDelegate
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self processError:error];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    self.receivedData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [self.receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self processReceivedData];
 }
 
 @end
