@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *text;
 
 - (void)validateDoneButton;
-
 - (IBAction)donePressed:(id)sender;
 - (IBAction)textFieldChanged:(id)sender;
 
@@ -59,7 +58,7 @@
     [self.activityIndicator startAnimating];
     self.doneButton.enabled = NO;
 
-    [ALRequest requestWithType:ALRequestCommandTelemetry callback:^(BOOL success, id data) {
+    [ALRequest requestWithType:ALRequestTypeGetTelemetry callback:^(BOOL success, id data) {
         [self.activityIndicator stopAnimating];
         self.doneButton.enabled = YES;
         if (!success) {

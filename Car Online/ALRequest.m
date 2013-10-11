@@ -13,13 +13,15 @@
 #define SERVER_TIME_ZONE 4
 
 NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
+NSString* const ALRequestTypeGetPoints = @"request-type-get-points";
+NSString* const ALRequestTypeGetTelemetry = @"request-type-get-telemetry";
+NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 
 @interface ALRequest () <NSURLConnectionDelegate>
 
-@property (nonatomic, assign) ALRequestCommand command;
+@property (nonatomic, strong) ALRequestType requestType;
 @property (nonatomic, strong) ALRequestCallback callback;
-@property (nonatomic, strong) NSString *commandName;
-@property (nonatomic, strong) NSDictionary *commandInfo;
+@property (nonatomic, strong) NSDictionary *requestInfo;
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) NSMutableData *receivedData;
 
@@ -27,35 +29,27 @@ NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
 
 @implementation ALRequest
 
-+ (ALRequest*)requestWithType:(ALRequestCommand)command callback:(ALRequestCallback)callback {
-    ALRequest *request = [[ALRequest alloc] initWithType:command callback:callback];
++ (ALRequest*)requestWithType:(ALRequestType)type callback:(ALRequestCallback)callback {
+    ALRequest *request = [[ALRequest alloc] initWithType:type callback:callback];
     [request run];
     return request;
 }
 
-- (id)initWithType:(ALRequestCommand)command callback:(ALRequestCallback)callback {
+- (id)initWithType:(ALRequestType)type callback:(ALRequestCallback)callback {
     self = [super init];
     if (self) {
-        self.command = command;
+        self.requestType = type;
         self.callback = callback;
-        switch (command) {
-            case ALRequestCommandEvents:
-                self.commandName = @"events"; break;
-            case ALRequestCommandPoints:
-                self.commandName = @"points"; break;
-            case ALRequestCommandTelemetry:
-                self.commandName = @"telemetry"; break;
-            default:
-                NSLog(@"%@: command not supported (%d)", [self class], self.command);
-                return nil;
-        }
+        
         static NSDictionary *config = nil;
         if (!config) {
             config = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:NSStringFromClass([self class]) ofType:@"plist"]] objectForKey:@"request-types"];
         }
-        self.commandInfo = config[self.commandName];
-        if (!self.commandInfo) {
-            NSLog(@"%@: can't find config for command (%@)", [self class], self.commandName);
+        
+        self.requestInfo = config[self.requestType];
+        if (!self.requestInfo) {
+            NSLog(@"%@: can't find config for command (%@)", [self class], self.requestInfo);
+            callback(NO, nil);
             return nil;
         }
     }
@@ -65,7 +59,7 @@ NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
 - (void)run {
     NSString *apiKey = [[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"];
     NSAssert(apiKey != nil, @"No API Key");
-    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://api.car-online.ru/do?skey=%@&data=%@&content=xml", apiKey, self.commandName];
+    NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://api.car-online.ru/do?skey=%@&data=%@&content=xml", apiKey, self.requestInfo[@"data-param-value"]];
     if (LOG)
         NSLog(@"%@ loading url %@", [self class], urlString);
     NSURL *url = [NSURL URLWithString:urlString];
@@ -100,13 +94,13 @@ NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
         NSMutableDictionary *resultItem = [NSMutableDictionary dictionary];
 
         for (GDataXMLNode *attribute in element.attributes) {
-            if ([[self.commandInfo objectForKey:@"ignore-attributes"] containsObject:attribute.name]) {
+            if ([[self.requestInfo objectForKey:@"ignore-attributes"] containsObject:attribute.name]) {
                 continue;
-            } else if ([[self.commandInfo objectForKey:@"date-attributes"] containsObject:attribute.name]) {
+            } else if ([[self.requestInfo objectForKey:@"date-attributes"] containsObject:attribute.name]) {
                 [resultItem setObject:[formatter dateFromString:attribute.stringValue] forKey:attribute.name];
-            } else if ([[self.commandInfo objectForKey:@"double-attributes"] containsObject:attribute.name]) {
+            } else if ([[self.requestInfo objectForKey:@"double-attributes"] containsObject:attribute.name]) {
                 [resultItem setObject:[NSNumber numberWithDouble:attribute.stringValue.doubleValue] forKey:attribute.name];
-            } else if ([[self.commandInfo objectForKey:@"integer-attributes"] containsObject:attribute.name]) {
+            } else if ([[self.requestInfo objectForKey:@"integer-attributes"] containsObject:attribute.name]) {
                 [resultItem setObject:[NSNumber numberWithInteger:attribute.stringValue.integerValue] forKey:attribute.name];
             } else {
                 [resultItem setObject:attribute.stringValue forKey:attribute.name];
@@ -114,17 +108,17 @@ NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
         }
 
         // filtering
-        for (NSString *filterKey in [self.commandInfo objectForKey:@"filter"]) {
-            if ([[resultItem objectForKey:filterKey] isEqual:[[self.commandInfo objectForKey:@"filter"] objectForKey:filterKey]]) {
+        for (NSString *filterKey in [self.requestInfo objectForKey:@"filter"]) {
+            if ([[resultItem objectForKey:filterKey] isEqual:[[self.requestInfo objectForKey:@"filter"] objectForKey:filterKey]]) {
                 resultItem = nil;
                 break;
             }
         }
 
         // grouping
-        if (resultItem && [self.commandInfo objectForKey:@"group-by"]) {
+        if (resultItem && [self.requestInfo objectForKey:@"group-by"]) {
             BOOL isEqualToLast = YES;
-            for (NSString *groupKey in [self.commandInfo objectForKey:@"group-by"]) {
+            for (NSString *groupKey in [self.requestInfo objectForKey:@"group-by"]) {
                 if (![[resultItem objectForKey:groupKey] isEqual:[[result lastObject] objectForKey:groupKey]]) {
                     isEqualToLast = NO;
                     break;

@@ -52,7 +52,7 @@
     [self.refreshControl beginRefreshing];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 
-    [ALRequest requestWithType:ALRequestCommandEvents callback:^(BOOL success, id data) {
+    [ALRequest requestWithType:ALRequestTypeGetEvents callback:^(BOOL success, id data) {
         NSArray *loadedEvents = data;
 
         [self.refreshControl endRefreshing];

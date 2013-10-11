@@ -10,16 +10,16 @@
 
 extern NSString* const ALRequestErrorDomain;
 
-typedef NS_ENUM(NSInteger, ALRequestCommand) {
-    ALRequestCommandPoints,
-    ALRequestCommandTelemetry,
-    ALRequestCommandEvents
-};
+// Reques types
+extern NSString* const ALRequestTypeGetPoints;
+extern NSString* const ALRequestTypeGetTelemetry;
+extern NSString* const ALRequestTypeGetEvents;
 
+typedef NSString* ALRequestType;
 typedef void(^ALRequestCallback)(BOOL success, id data);
 
 @interface ALRequest : NSObject
 
-+ (ALRequest*)requestWithType:(ALRequestCommand)command callback:(ALRequestCallback)callback;
++ (ALRequest*)requestWithType:(ALRequestType)type callback:(ALRequestCallback)callback;
 
 @end

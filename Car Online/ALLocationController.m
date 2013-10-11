@@ -74,7 +74,7 @@
     }
     self.navigationItem.rightBarButtonItem.enabled = NO;
 
-    [ALRequest requestWithType:ALRequestCommandPoints callback:^(BOOL success, id data) {
+    [ALRequest requestWithType:ALRequestTypeGetPoints callback:^(BOOL success, id data) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
 
         if (!success) {
@@ -115,8 +115,8 @@
         [self.mapView addOverlay:[MKPolyline polylineWithCoordinates:coords count:points.count]];
         free(coords);
     }];
-
-    [ALRequest requestWithType:ALRequestCommandTelemetry callback:^(BOOL success, id data) {
+/*
+    [ALRequest requestWithType:ALRequestTypeGetTelemetry callback:^(BOOL success, id data) {
         if (!success) {
             return;
         }
@@ -133,6 +133,7 @@
             }];
         }
     }];
+ */
 }
 
 #pragma mark Map Kit Delegate

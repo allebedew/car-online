@@ -4,7 +4,7 @@
 <dict>
 	<key>request-types</key>
 	<dict>
-		<key>points</key>
+		<key>request-type-get-points</key>
 		<dict>
 			<key>data-param-value</key>
 			<string>gpsPoints</string>
@@ -27,7 +27,7 @@
 				<string>lon</string>
 			</array>
 		</dict>
-		<key>telemetry</key>
+		<key>request-type-get-telemetry</key>
 		<dict>
 			<key>data-param-value</key>
 			<string>telemetry</string>
@@ -42,7 +42,7 @@
 				<string>waysCount</string>
 			</array>
 		</dict>
-		<key>events</key>
+		<key>request-type-get-events</key>
 		<dict>
 			<key>data-param-value</key>
 			<string>events</string>
