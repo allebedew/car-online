@@ -12,6 +12,7 @@
 #define LOG YES
 #define SERVER_TIME_ZONE 4
 
+NSString* const ALRequestAPIKey = @"api-key";
 NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
 NSString* const ALRequestTypeGetPoints = @"request-type-get-points";
 NSString* const ALRequestTypeGetTelemetry = @"request-type-get-telemetry";
@@ -28,6 +29,11 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 @end
 
 @implementation ALRequest
+
++ (void)setAPIKey:(NSString*)key {
+    [[NSUserDefaults standardUserDefaults] setObject:key forKey:ALRequestAPIKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 + (ALRequest*)requestWithType:(ALRequestType)type callback:(ALRequestCallback)callback {
     ALRequest *request = [[ALRequest alloc] initWithType:type callback:callback];
@@ -48,7 +54,7 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
         
         self.requestInfo = config[self.requestType];
         if (!self.requestInfo) {
-            NSLog(@"%@: can't find config for command (%@)", [self class], self.requestInfo);
+            NSLog(@"%@: can't find config for command (%@)", [self class], self.requestType);
             callback(NO, nil);
             return nil;
         }
@@ -57,7 +63,7 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 }
 
 - (void)run {
-    NSString *apiKey = [[NSUserDefaults standardUserDefaults] objectForKey:@"api-key"];
+    NSString *apiKey = [[NSUserDefaults standardUserDefaults] objectForKey:ALRequestAPIKey];
     NSAssert(apiKey != nil, @"No API Key");
     NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://api.car-online.ru/do?skey=%@&data=%@&content=xml", apiKey, self.requestInfo[@"data-param-value"]];
     if (LOG)
@@ -66,7 +72,9 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
     [self.connection start];
+#if !DESKTOP
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+#endif
 }
 
 - (void)processReceivedData {
@@ -144,7 +152,9 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 }
 
 - (void)processError:(NSError*)error {
+#if !DESKTOP
     [[[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+#endif
     if (self.callback) {
         self.callback(NO, nil);
     }
@@ -153,7 +163,9 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 #pragma mark - NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+#if !DESKTOP
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+#endif
     [self processError:error];
 }
 
@@ -166,7 +178,9 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+#if !DESKTOP
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+#endif
     [self processReceivedData];
 }
 

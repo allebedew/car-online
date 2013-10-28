@@ -116,7 +116,6 @@
 		A1B2ADFB151798D20095FD7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADFA151798D10095FD7D /* CoreLocation.framework */; };
 		A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B48D15262B5000A78472 /* Sevastopol.gpx */; };
 		A1D6B4C9152701BC00A78472 /* ALRequest.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B4C8152701BC00A78472 /* ALRequest.plist */; };
-		A1EA52C617CBA3EE00475C5E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1EA52C517CBA3EE00475C5E /* Cocoa.framework */; };
 		A1EA52D017CBA3EE00475C5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52CE17CBA3EE00475C5E /* InfoPlist.strings */; };
 		A1EA52D217CBA3EE00475C5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EA52D117CBA3EE00475C5E /* main.m */; };
 		A1EA52D617CBA3EE00475C5E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52D417CBA3EE00475C5E /* Credits.rtf */; };
@@ -125,6 +124,11 @@
 		A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52DD17CBA3EE00475C5E /* Images.xcassets */; };
 		A1F20804169570320066B2D9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
 		A1F20807169574650066B2D9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F20806169574650066B2D9 /* Default-568h@2x.png */; };
+		FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF357DC5181EBEB700F3DF61 /* Cocoa.framework */; };
+		FF357DC7181EBF0A00F3DF61 /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; };
+		FF357DC8181EBF1F00F3DF61 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
+		FF357DC9181EC09200F3DF61 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FF357DCA181EC18200F3DF61 /* ALRequest.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B4C8152701BC00A78472 /* ALRequest.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -252,7 +256,6 @@
 		A1D6B48D15262B5000A78472 /* Sevastopol.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sevastopol.gpx; sourceTree = "<group>"; };
 		A1D6B4C8152701BC00A78472 /* ALRequest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ALRequest.plist; sourceTree = "<group>"; };
 		A1EA52C417CBA3EE00475C5E /* Car Online Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Online Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1EA52C517CBA3EE00475C5E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		A1EA52C817CBA3EE00475C5E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A1EA52C917CBA3EE00475C5E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A1EA52CA17CBA3EE00475C5E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -268,6 +271,7 @@
 		A1EA52E417CBA3EE00475C5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1F20803169570320066B2D9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		A1F20806169574650066B2D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FF357DC5181EBEB700F3DF61 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +293,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1EA52C617CBA3EE00475C5E /* Cocoa.framework in Frameworks */,
+				FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */,
+				FF357DC8181EBF1F00F3DF61 /* libxml2.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +477,7 @@
 		A1B2ADCF15176B2D0095FD7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF357DC5181EBEB700F3DF61 /* Cocoa.framework */,
 				A1F20803169570320066B2D9 /* libxml2.2.dylib */,
 				A118E97015226FA000C6C89D /* MessageUI.framework */,
 				A1B2ADFA151798D10095FD7D /* CoreLocation.framework */,
@@ -479,7 +485,6 @@
 				A1B2ADD015176B2D0095FD7D /* UIKit.framework */,
 				A1B2ADD215176B2D0095FD7D /* Foundation.framework */,
 				A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */,
-				A1EA52C517CBA3EE00475C5E /* Cocoa.framework */,
 				A1EA52E417CBA3EE00475C5E /* XCTest.framework */,
 				A1EA52C717CBA3EE00475C5E /* Other Frameworks */,
 			);
@@ -751,6 +756,7 @@
 				A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */,
 				A1EA52D617CBA3EE00475C5E /* Credits.rtf in Resources */,
 				A1EA52DC17CBA3EE00475C5E /* MainMenu.xib in Resources */,
+				FF357DCA181EC18200F3DF61 /* ALRequest.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +783,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF357DC7181EBF0A00F3DF61 /* ALRequest.m in Sources */,
 				A1EA52D217CBA3EE00475C5E /* main.m in Sources */,
+				FF357DC9181EC09200F3DF61 /* GDataXMLNode.m in Sources */,
 				A1EA52D917CBA3EE00475C5E /* ALAppDelegate.m in Sources */,
 				A17367A417D9F11F0044DA9B /* ALMainViewController.m in Sources */,
 			);
@@ -937,14 +945,19 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online Desktop/Car Online Desktop-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DESKTOP=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Car Online Desktop/Car Online Desktop-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
@@ -971,10 +984,16 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online Desktop/Car Online Desktop-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "DESKTOP=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Car Online Desktop/Car Online Desktop-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;

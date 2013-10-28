@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 extern NSString* const ALRequestErrorDomain;
 
 // Reques types
@@ -20,6 +18,7 @@ typedef void(^ALRequestCallback)(BOOL success, id data);
 
 @interface ALRequest : NSObject
 
++ (void)setAPIKey:(NSString*)key;
 + (ALRequest*)requestWithType:(ALRequestType)type callback:(ALRequestCallback)callback;
 
 @end
