@@ -9,9 +9,12 @@
 #import "ALMainViewController.h"
 #import "ALRequest.h"
 
+@import MapKit;
+
 @interface ALMainViewController () <NSAlertDelegate>
 
 @property (nonatomic, strong) IBOutlet NSTextField *textLabel;
+@property (nonatomic, strong) IBOutlet MKMapView *mapView;
 
 - (IBAction)loadData:(id)sender;
 
@@ -27,7 +30,11 @@
 }
 
 - (IBAction)loadData:(id)sender {
+    [ALRequest setAPIKey:@"1e23019c8FdbffB2bec223311e1682"];
     [ALRequest requestWithType:ALRequestTypeGetTelemetry callback:^(BOOL success, id data) {
+        if (!success) {
+            return;
+        }
         NSDictionary *telemetry = [data lastObject];
         [self.textLabel setStringValue:[NSString stringWithFormat:@"%ld stands, %ld km, %ld max",
                                         (long)[telemetry[@"standsCount"] integerValue], [telemetry[@"mileage"] integerValue], [telemetry[@"maxSpeed"] integerValue]]];

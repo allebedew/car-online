@@ -64,7 +64,11 @@ NSString* const ALRequestTypeGetEvents = @"request-type-get-events";
 
 - (void)run {
     NSString *apiKey = [[NSUserDefaults standardUserDefaults] objectForKey:ALRequestAPIKey];
-    NSAssert(apiKey != nil, @"No API Key");
+    if (!apiKey) {
+        NSLog(@"%@: no api key", self.class);
+        [self processError:[NSError errorWithDomain:ALRequestErrorDomain code:-2 userInfo:nil]];
+        return;
+    }
     NSMutableString *urlString = [NSMutableString stringWithFormat:@"http://api.car-online.ru/do?skey=%@&data=%@&content=xml", apiKey, self.requestInfo[@"data-param-value"]];
     if (LOG)
         NSLog(@"%@ loading url %@", [self class], urlString);

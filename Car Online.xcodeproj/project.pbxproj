@@ -124,6 +124,7 @@
 		A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52DD17CBA3EE00475C5E /* Images.xcassets */; };
 		A1F20804169570320066B2D9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
 		A1F20807169574650066B2D9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F20806169574650066B2D9 /* Default-568h@2x.png */; };
+		FA3FA530181ED82500A0DE4D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3FA52F181ED82500A0DE4D /* MapKit.framework */; };
 		FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF357DC5181EBEB700F3DF61 /* Cocoa.framework */; };
 		FF357DC7181EBF0A00F3DF61 /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; };
 		FF357DC8181EBF1F00F3DF61 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
@@ -271,6 +272,7 @@
 		A1EA52E417CBA3EE00475C5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1F20803169570320066B2D9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		A1F20806169574650066B2D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FA3FA52F181ED82500A0DE4D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		FF357DC5181EBEB700F3DF61 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -293,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3FA530181ED82500A0DE4D /* MapKit.framework in Frameworks */,
 				FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */,
 				FF357DC8181EBF1F00F3DF61 /* libxml2.2.dylib in Frameworks */,
 			);
@@ -477,6 +480,7 @@
 		A1B2ADCF15176B2D0095FD7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA3FA52F181ED82500A0DE4D /* MapKit.framework */,
 				FF357DC5181EBEB700F3DF61 /* Cocoa.framework */,
 				A1F20803169570320066B2D9 /* libxml2.2.dylib */,
 				A118E97015226FA000C6C89D /* MessageUI.framework */,
@@ -623,6 +627,9 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					A1B2ADCB15176B2D0095FD7D = {
+						DevelopmentTeam = PBLK7VB9B2;
+					};
+					A1EA52C317CBA3EE00475C5E = {
 						DevelopmentTeam = PBLK7VB9B2;
 					};
 				};
@@ -880,6 +887,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -905,6 +913,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -980,6 +989,7 @@
 				INFOPLIST_FILE = "Car Online Desktop/Car Online Desktop-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1016,6 +1026,7 @@
 				INFOPLIST_FILE = "Car Online Desktop/Car Online Desktop-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
