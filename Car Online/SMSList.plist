@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sms-list</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Основные настройки</string>
+			<key>items</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>[C-Code]</string>
+					<key>description</key>
+					<string>Инициализация MS-PGSM Спутник</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>[C-Code] INIT</string>
+					<key>description</key>
+					<string>Назначение главного абонента</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>[C-Code] VALET</string>
+					<key>description</key>
+					<string>Включение режима VALET, разблокировка.</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>ALARM SMS</string>
+					<key>description</key>
+					<string>Установка оповещения о тревогах по SMS</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>ALARM CALL</string>
+					<key>description</key>
+					<string>Установка голосового оповещения о тревогах</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Сервисные команды</string>
+			<key>items</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>LOCATION?</string>
+					<key>description</key>
+					<string>Запрос местоположения</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>BALANCE?</string>
+					<key>description</key>
+					<string>Запрос баланса лицевого счета</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>STATUS?</string>
+					<key>description</key>
+					<string>Запрос состояния MS-PGSM Спутник</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>USERS?</string>
+					<key>description</key>
+					<string>Запрос списка абонентов</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>VERSION?</string>
+					<key>description</key>
+					<string>Запрос версии ПО MS-PGSM Спутник</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>CONNECT</string>
+					<key>description</key>
+					<string>Запрос клиента по SMS</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Команды управления</string>
+			<key>items</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>MOTOR ON</string>
+					<key>description</key>
+					<string>Дистанционный запуск двигателя</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>MOTOR OFF</string>
+					<key>description</key>
+					<string>Дистанционная остановка двигателя</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>BLOCK MTR</string>
+					<key>description</key>
+					<string>Блокировка MS-PGSM Спутник</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>REL1 LOCK</string>
+					<key>description</key>
+					<string>Включение реле 1</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>REL1 UNLOCK</string>
+					<key>description</key>
+					<string>Выключение реле 1</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>REL1 IMPULS</string>
+					<key>description</key>
+					<string>Подача импульса от Выхода 1</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Дополнительные настройки</string>
+			<key>items</key>
+			<array>
+				<dict>
+					<key>text</key>
+					<string>GPRS 1.1.1.1,[APN],[Username],[Password]</string>
+					<key>description</key>
+					<string>Установка параметров доступа к Internet GPRS</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>INTERNET ALL</string>
+					<key>description</key>
+					<string>Разрешение выхода в интернет.</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>INTERNET OFF</string>
+					<key>description</key>
+					<string>Запрет выхода в интернет</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>TIMER [Interval (minutes)]</string>
+					<key>description</key>
+					<string>Установка интервала для соединения по таймеру</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>TIMER 0</string>
+					<key>description</key>
+					<string>Отключение режима соединения по таймеру</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>ASK BALANCE</string>
+					<key>description</key>
+					<string>Установка USSD-запроса баланса</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>CHANGE C [Old C-Code] [New C-Code]</string>
+					<key>description</key>
+					<string>Смена С-кода</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>NEW USER [Number]</string>
+					<key>description</key>
+					<string>Добавление нового абонента</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>DEF PASSW [Password]</string>
+					<key>description</key>
+					<string>Назначение пароля на подачу команд</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>ALRM PRIOR [Priority]</string>
+					<key>description</key>
+					<string>Установка приоритета тревожных сообщений</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>CAM [Camera number],[Size]</string>
+					<key>description</key>
+					<string>Установка размеров фотографий от камер</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>SENSOR ALARM</string>
+					<key>description</key>
+					<string>Установка Входа 2 в режим тревожной кнопки</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>SENSOR HOOD</string>
+					<key>description</key>
+					<string>Установка обычного режима Входа 2</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>SERVER [IP Address]</string>
+					<key>description</key>
+					<string>Задать IP-адрес сервера</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>EN SAV ON</string>
+					<key>description</key>
+					<string>Включение режима энергосбережения</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>RESET</string>
+					<key>description</key>
+					<string>Перезагрузка</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>TURBO ON</string>
+					<key>description</key>
+					<string>Включить режим TURBO</string>
+				</dict>
+				<dict>
+					<key>text</key>
+					<string>TURBO OFF</string>
+					<key>description</key>
+					<string>Выключить режим TURBO</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
