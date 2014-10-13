@@ -273,9 +273,6 @@
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sms" translatesAutoresizingMaskIntoConstraints="NO" id="J8g-go-lgJ">
-                                <rect key="frame" x="40" y="301" width="240" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.89683089719999998" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

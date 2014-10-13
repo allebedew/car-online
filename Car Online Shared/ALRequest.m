@@ -78,7 +78,9 @@ float const responseProgressWeight = 0.3f;
   NSParameterAssert(key != nil && comand != nil);
   
   if (!beginDate) {
-    beginDate = [NSDate startOfTheDayDate];
+      
+      beginDate = [NSDate startOfTheDayDate];
+//      beginDate = [NSDate dateWithTimeIntervalSince1970:[beginDate timeIntervalSince1970] - 86400];
   }
   NSLog(@"%@ %@", [NSDate date], [NSDate startOfTheDayDate]);
   NSString *beginDateString = [NSString stringWithFormat:@"%.0f000", [beginDate timeIntervalSince1970]];

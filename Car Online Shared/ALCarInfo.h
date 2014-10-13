@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MKAnnotation.h>
+#import <MapKit/MKOverlay.h>
 
 extern NSString* const ALCarInfoErrorDomain;
 
@@ -21,11 +23,21 @@ extern NSString* const ALCarInfoErrorDomain;
 
 // ==============================================
 
+@interface ALCarParkingInfo : NSObject <MKAnnotation>
+
+@property (nonatomic, readonly) CLLocation *location;
+@property (nonatomic, readonly) NSDate *beginTime;
+@property (nonatomic, readonly) NSDate *endTime;
+@property (nonatomic, readonly) NSTimeInterval duration;
+
+@end
+
 @interface ALCarLocation : ALCarInfo
 
 @property (nonatomic, readonly) CLLocation *lastLocation;
 @property (nonatomic, readonly) CLLocationCoordinate2D *coordinates;
 @property (nonatomic, readonly) NSUInteger coordinatesCount;
+@property (nonatomic, readonly) NSArray *parkings;
 
 @end
 

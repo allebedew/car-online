@@ -115,6 +115,9 @@
 		FA4EBAF219D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */; };
 		FAA0B3FF19E91EF100C0294E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */; };
 		FAA0B40119E91FF800C0294E /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40019E91FF800C0294E /* Main.xcassets */; };
+		FAA0B40719E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
+		FAA0B40819E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
+		FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */; };
 		FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFA3E75189C400800AF6F45 /* ALCarInfo.m */; };
 		FAFA3E77189C400800AF6F45 /* ALCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFA3E75189C400800AF6F45 /* ALCarInfo.m */; };
 		FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF357DC5181EBEB700F3DF61 /* Cocoa.framework */; };
@@ -252,6 +255,9 @@
 		FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		FAA0B40019E91FF800C0294E /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
+		FAA0B40519E9393400C0294E /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPathRenderer.h; sourceTree = "<group>"; };
+		FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPathRenderer.m; sourceTree = "<group>"; };
 		FAFA3E74189C400800AF6F45 /* ALCarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALCarInfo.h; path = "Car Online Shared/ALCarInfo.h"; sourceTree = SOURCE_ROOT; };
 		FAFA3E75189C400800AF6F45 /* ALCarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALCarInfo.m; path = "Car Online Shared/ALCarInfo.m"; sourceTree = SOURCE_ROOT; };
 		FF357DC5181EBEB700F3DF61 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -398,14 +404,14 @@
 		A1ACEACB16F5D8F000D15ACB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A118E97315237BC200C6C89D /* ALSettingsController.h */,
-				A118E97415237BC200C6C89D /* ALSettingsController.m */,
 				A1B2ADE215176B2D0095FD7D /* ALLocationController.h */,
 				A1B2ADE315176B2D0095FD7D /* ALLocationController.m */,
 				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
 				A10DE77F1517D9BD000A7EEA /* ALEventsController.m */,
 				A118E96615226C7000C6C89D /* ALSMSListController.h */,
 				A118E96715226C7000C6C89D /* ALSMSListController.m */,
+				A118E97315237BC200C6C89D /* ALSettingsController.h */,
+				A118E97415237BC200C6C89D /* ALSettingsController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 		A1B2ADC115176B2C0095FD7D = {
 			isa = PBXGroup;
 			children = (
+				FAA0B40519E9393400C0294E /* todo */,
 				A1EA52F717CBA4A500475C5E /* Car Online Shared */,
 				A1B2ADD615176B2D0095FD7D /* Car Online iOS */,
 				A1EA52CB17CBA3EE00475C5E /* Car Online Desktop */,
@@ -465,6 +472,7 @@
 				FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */,
 				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
 				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
+				FAA0B40B19E9E86500C0294E /* Views */,
 				A1ACEACB16F5D8F000D15ACB /* Controllers */,
 				A1ACEACC16F5DF6800D15ACB /* Resources */,
 				A1B2ADD715176B2D0095FD7D /* Supporting Files */,
@@ -541,6 +549,15 @@
 				A1EA52DD17CBA3EE00475C5E /* Images.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		FAA0B40B19E9E86500C0294E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */,
+				FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -664,6 +681,7 @@
 				A1469943152397D7001C7DD7 /* movement-start.gif in Resources */,
 				A1469944152397D7001C7DD7 /* changeTemperature.gif in Resources */,
 				A1469945152397D7001C7DD7 /* zonaout.gif in Resources */,
+				FAA0B40719E9393400C0294E /* todo in Resources */,
 				A1469946152397D7001C7DD7 /* zonain.gif in Resources */,
 				A1469947152397D7001C7DD7 /* incomingSms.gif in Resources */,
 				A1469948152397D7001C7DD7 /* reserve-power-on.gif in Resources */,
@@ -712,6 +730,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA0B40819E9393400C0294E /* todo in Resources */,
 				A17367A517D9F11F0044DA9B /* ALMainViewController.xib in Resources */,
 				A1EA52D017CBA3EE00475C5E /* InfoPlist.strings in Resources */,
 				A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */,
@@ -731,6 +750,7 @@
 				A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */,
 				A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */,
 				A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */,
+				FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */,
 				FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */,
 				A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */,
 				A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */,
@@ -851,6 +871,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 105;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -870,6 +891,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 105;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

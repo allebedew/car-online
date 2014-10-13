@@ -27,13 +27,23 @@
     return [NSString stringWithFormat:@"%d seconds ago", secs];
 }
 
+static NSDateFormatter *formatter = nil;
+
 - (NSString*)formattedString {
-    static NSDateFormatter *formatter = nil;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterShortStyle];
-        [formatter setTimeStyle:NSDateFormatterMediumStyle];
     }
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterMediumStyle];
+    return [formatter stringFromDate:self];
+}
+
+- (NSString*)formattedTimeString {
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+    }
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterMediumStyle];
     return [formatter stringFromDate:self];
 }
 

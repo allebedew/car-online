@@ -9,6 +9,8 @@
 #import "ALLocationController.h"
 #import "ALRequest.h"
 #import "Convertions.h"
+#import "ALPathRenderer.h"
+
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -23,8 +25,8 @@
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel2;
 @property (nonatomic, strong) IBOutlet UIProgressView *progressView;
 
-@property (nonatomic, copy) CLLocation *carLocation;
-@property (nonatomic, strong) MKPointAnnotation *carAnnotation;
+@property (nonatomic, strong) CLLocationManager* locationManager;
+@property (nonatomic, strong) MKPointAnnotation *lastLocationAnnotation;
 @property (nonatomic, weak) NSTimer *updateTimer;
 @property (nonatomic, strong) NSDate *updatedDate;
 
@@ -57,6 +59,7 @@
     if (!allDataLoaded && !requestsRunning) {
         [self loadData:self];
     }
+    [self displayUserLocation];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -64,7 +67,22 @@
     [self stopAutoupdateTimeLabel];
 }
 
+#pragma mark - Properties
+
+- (CLLocationManager*)locationManager {
+  if (!_locationManager) {
+    _locationManager = [CLLocationManager new];
+  }
+  return _locationManager;
+}
+
 #pragma mark - Private
+
+- (void)displayUserLocation {
+  if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+    [self.locationManager requestWhenInUseAuthorization];
+  }
+}
 
 - (void)startAutoupdateTimeLabel {
     [self updateTimeLabel];
@@ -155,50 +173,52 @@
     self.updatedLabel.text = [NSString stringWithFormat:@"Updated %@", self.updatedDate ? [self.updatedDate agoFromNow] : @"never"];
 }
 
-- (void)updateAnnotation {
-    if (self.carLocation) {
-        if (!self.carAnnotation) {
-            self.carAnnotation = [[MKPointAnnotation alloc] init];
-            [self.mapView addAnnotation:self.carAnnotation];
-        }
-        CLLocationDistance distance = 0;
-        if (self.mapView.userLocation.location) {
-            distance = [self.mapView.userLocation.location distanceFromLocation:self.carLocation];
-        }
-        if (distance > 0) {
-            self.carAnnotation.title = [NSString stringWithFormat:@"Car is %.0fm away", distance];
-        } else {
-            self.carAnnotation.title = @"Car";
-        }
-        self.carAnnotation.coordinate = self.carLocation.coordinate;
-        self.carAnnotation.subtitle = [self.carLocation.timestamp agoFromNow];
-    } else {
-        if (self.carAnnotation) {
-            [self.mapView removeAnnotation:self.carAnnotation];
-        }
+- (void)updateLastLocationAnnotation {
+    CLLocation *lastLocation = self.carLocationInfo.lastLocation;
+    CLLocation *userLocation = self.mapView.userLocation.location;
+    if (self.lastLocationAnnotation && userLocation) {
+        CLLocationDistance distance = [userLocation distanceFromLocation:lastLocation];
+        self.lastLocationAnnotation.subtitle = [NSString stringWithFormat:@"%.0fm from me", distance];
     }
 }
 
 - (void)updateWithCarLocationInfo {
-    // car annotation
-    self.carLocation = self.carLocationInfo.lastLocation;
-    [self updateAnnotation];
-    if (self.carLocation) {
-        [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.carLocation.coordinate, ZOOM_METTERS, ZOOM_METTERS)
-                       animated:YES];
-    }
+    // remove all annotations
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    self.lastLocationAnnotation = nil;
     
     // remove route
     [self.mapView removeOverlays:self.mapView.overlays];
     
+    // add last location annotation
+    if (self.carLocationInfo.lastLocation) {
+        MKPointAnnotation *lastLocationAnnotation = [MKPointAnnotation new];
+        lastLocationAnnotation.title = @"Last Location";
+        lastLocationAnnotation.coordinate = self.carLocationInfo.lastLocation.coordinate;
+        [self.mapView addAnnotation:lastLocationAnnotation];
+        self.lastLocationAnnotation = lastLocationAnnotation;
+
+        [self updateLastLocationAnnotation];
+        
+        if (self.carLocationInfo.lastLocation) {
+            [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.carLocationInfo.lastLocation.coordinate, ZOOM_METTERS, ZOOM_METTERS)
+                           animated:YES];
+        }
+    }
+    
+    // add parking annotations
+    [self.mapView addAnnotations:self.carLocationInfo.parkings];
+    
     // add route
-    [self.mapView addOverlay:[MKPolyline polylineWithCoordinates:self.carLocationInfo.coordinates
-                                                           count:self.carLocationInfo.coordinatesCount]];
+    if (self.carLocationInfo.coordinatesCount > 0) {
+        [self.mapView addOverlay:[MKPolyline polylineWithCoordinates:self.carLocationInfo.coordinates
+                                                               count:self.carLocationInfo.coordinatesCount]];
+    }
 }
 
 - (void)updateWithTelemetryInfo {
     BOOL showDescription = (self.carTelemetryInfo != nil);
-    if (showDescription != self.descriptionView.alpha == 1.0f) {
+    if ((self.descriptionView.alpha == 1.0f) != showDescription) {
         [UIView animateWithDuration:0.3 animations:^{
             self.descriptionView.alpha = (showDescription ? 1.0f : 0.0f);
         }];
@@ -213,16 +233,32 @@
 #pragma mark Map Kit Delegate
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
-    [self updateAnnotation];
+    [self updateLastLocationAnnotation];
 }
 
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    if (annotation == self.carAnnotation) {
-        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cell"];
+    if (annotation == self.lastLocationAnnotation) {
+        static NSString *identifier = @"last location";
+        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
         if (!pin) {
-            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
             pin.canShowCallout = YES;
             pin.animatesDrop = YES;
+            pin.pinColor = MKPinAnnotationColorRed;
+        } else {
+            pin.annotation = annotation;
+        }
+        return pin;
+    }
+    
+    if ([annotation isKindOfClass:[ALCarParkingInfo class]]) {
+        static NSString *identifier = @"parking";
+        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (!pin) {
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+            pin.canShowCallout = YES;
+            pin.animatesDrop = YES;
+            pin.pinColor = MKPinAnnotationColorPurple;
         } else {
             pin.annotation = annotation;
         }
@@ -231,12 +267,14 @@
     return nil;
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+- (MKOverlayRenderer*)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     if ([overlay isKindOfClass:[MKPolyline class]]) {
-        MKPolylineView *pathView = [[MKPolylineView alloc] initWithPolyline:overlay];
-        pathView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:.7];
-        pathView.lineWidth = 10.;
-        return pathView;
+        MKPolyline *polyline = (MKPolyline*)overlay;
+        MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:polyline];
+        renderer.strokeColor = [UIColor blueColor];
+        renderer.alpha = .75;
+        renderer.lineWidth = 5.;
+        return renderer;
     }
     return nil;
 }

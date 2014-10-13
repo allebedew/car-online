@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,22 +10,47 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Online" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="XYA-L4-ajC">
+                    <rect key="frame" x="0.0" y="431" width="480" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem title="Location" image="location" id="SfI-4u-RrZ"/>
+                        <tabBarItem title="Events" image="events" id="1Bm-vC-kZd"/>
+                        <tabBarItem title="SMS" image="sms" id="QO2-U0-TXL"/>
+                    </items>
+                </tabBar>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="2Uq-Bq-4xO">
+                    <rect key="frame" x="0.0" y="20" width="480" height="44"/>
+                    <items>
+                        <navigationItem id="GnJ-hN-J2P"/>
+                    </items>
+                </navigationBar>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="Kid-kn-2rF"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="2Uq-Bq-4xO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3PB-uM-tAU"/>
+                <constraint firstAttribute="bottom" secondItem="XYA-L4-ajC" secondAttribute="bottom" id="FE4-lN-h7W"/>
+                <constraint firstAttribute="trailing" secondItem="XYA-L4-ajC" secondAttribute="trailing" id="Q4P-Ku-D2R"/>
+                <constraint firstItem="XYA-L4-ajC" firstAttribute="leading" secondItem="2Uq-Bq-4xO" secondAttribute="leading" id="Wgw-wW-lPF"/>
+                <constraint firstItem="XYA-L4-ajC" firstAttribute="trailing" secondItem="2Uq-Bq-4xO" secondAttribute="trailing" id="aEy-tI-5Iw"/>
+                <constraint firstItem="2Uq-Bq-4xO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="ebM-4c-fZJ"/>
+                <constraint firstAttribute="trailing" secondItem="2Uq-Bq-4xO" secondAttribute="trailing" id="wW3-xw-QFQ"/>
+                <constraint firstItem="XYA-L4-ajC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zrp-t9-Bg4"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Wgw-wW-lPF"/>
+                    <exclude reference="aEy-tI-5Iw"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="404" y="445"/>
         </view>
     </objects>
+    <resources>
+        <image name="events" width="30" height="30"/>
+        <image name="location" width="30" height="30"/>
+        <image name="sms" width="30" height="30"/>
+    </resources>
 </document>

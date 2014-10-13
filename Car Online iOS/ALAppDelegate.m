@@ -8,12 +8,15 @@
 
 #import "ALAppDelegate.h"
 
+@import CoreLocation;
+
 @implementation ALAppDelegate
 
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    [[NSUserDefaults standardUserDefaults] setObject:@"1e23019c8FdbffB2bec223311e1682" forKey:@"api-key"];
+  
     // Loading UI
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil];
@@ -23,7 +26,7 @@
         self.window.rootViewController = [storyboard instantiateInitialViewController];
     }
     [self.window makeKeyAndVisible];
-    
+  
     return YES;
 }
 

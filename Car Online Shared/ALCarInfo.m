@@ -10,6 +10,8 @@
 #import "GDataXMLNode.h"
 #import "Convertions.h"
 
+#import <MapKit/MapKit.h>
+
 #define SERVER_TIME_ZONE 4
 #define KMPH_TO_MPH 0.277777777777778
 #define MS_TO_S 0.001
@@ -64,11 +66,57 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
 
 #pragma mark -
 
+@interface ALCarParkingInfo ()
+
+@property (nonatomic, strong, readwrite) CLLocation *location;
+@property (nonatomic, strong, readwrite) NSDate *startTime;
+@property (nonatomic, strong, readwrite) NSDate *endTime;
+@property (nonatomic, assign, readwrite) NSTimeInterval duration;
+
+@end
+
+@implementation ALCarParkingInfo
+
+- (id)initWithLocation:(CLLocation*)location begin:(NSDate*)begin end:(NSDate*)end {
+    self = [super init];
+    if (self) {
+        _location = location;
+        _beginTime = begin;
+        _endTime = end;
+        if (_beginTime != nil && _endTime != nil) {
+            _duration = [end timeIntervalSinceDate:begin];
+        }
+    }
+    return self;
+}
+
+- (NSString*)description {
+    return [NSString stringWithFormat:@"%@ (location=%@ begin=%@ end=%@ duration=%f",
+            [super description], self.location, self.beginTime, self.endTime, self.duration];
+}
+
+- (CLLocationCoordinate2D)coordinate {
+    return self.location.coordinate;
+}
+
+- (NSString*)title {
+    return @"Parking";
+}
+
+- (NSString*)subtitle {
+    return [NSString stringWithFormat:@"%@ - %@ (%@)", [self.beginTime formattedTimeString],
+            [self.endTime formattedTimeString], [@(self.duration / 60.) timeStringFromMinutes]];
+}
+
+@end
+
 @interface ALCarLocation ()
 
 @property (nonatomic, strong, readwrite) CLLocation *lastLocation;
+@property (nonatomic, strong, readwrite) NSArray *stopLocations;
 @property (nonatomic, assign, readwrite) CLLocationCoordinate2D *coordinates;
 @property (nonatomic, assign, readwrite) NSUInteger coordinatesCount;
+@property (nonatomic, strong, readwrite) NSArray *parkings;
 
 @end
 
@@ -79,8 +127,8 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
 }
 
 - (NSString*)description {
-    return [NSString stringWithFormat:@"%@ (lastLocation = %@, coordinatesCount = %d",
-            [super description], self.lastLocation, self.coordinatesCount];
+    return [NSString stringWithFormat:@"%@ (lastLocation=%@ coordinatesCount=%d parkings=%@",
+            [super description], self.lastLocation, self.coordinatesCount, self.parkings];
 }
 
 - (void)parseXMLDocument {
@@ -99,34 +147,66 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
     // Parsing last location
     
     GDataXMLElement *firstNode = rootElement.children.firstObject;
-
-    CLLocationDegrees latitude = [[[firstNode attributeForName:@"latitude"] stringValue] doubleValue];
-    CLLocationDegrees longitude = [[[firstNode attributeForName:@"longitude"] stringValue] doubleValue];
-    CLLocationDirection course = [[[firstNode attributeForName:@"course"] stringValue] doubleValue];
-    CLLocationSpeed speed = [[[firstNode attributeForName:@"speed"] stringValue] doubleValue] * KMPH_TO_MPH;
-    double gpsTime = [[[firstNode attributeForName:@"gpsTime"] stringValue] doubleValue];
-    NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:gpsTime * MS_TO_S];
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-    
-    self.lastLocation = [[CLLocation alloc] initWithCoordinate:coordinate
-                                                      altitude:0
-                                            horizontalAccuracy:0
-                                              verticalAccuracy:0
-                                                        course:course
-                                                         speed:speed
-                                                     timestamp:timestamp];
-    
+    self.lastLocation = [[self class] parseLocationFromXMLElement:firstNode];
+  
     // Parsing coordinates
-    
+  
+    NSDate *parkingEndTime = nil;
+    NSMutableArray *parkings = [NSMutableArray array];
     CLLocationCoordinate2D* coords = malloc(nodesCount * sizeof(CLLocationCoordinate2D));
     for (int i = 0; i < nodesCount; i++) {
         GDataXMLElement *node = rootElement.children[i];
         CLLocationDegrees latitude = [[[node attributeForName:@"latitude"] stringValue] doubleValue];
         CLLocationDegrees longitude = [[[node attributeForName:@"longitude"] stringValue] doubleValue];
         coords[i] = CLLocationCoordinate2DMake(latitude, longitude);
+      
+        // Processing parkings
+        
+        static NSTimeInterval minPrkingDuration = 300;
+        CLLocationSpeed speed = [[[node attributeForName:@"speed"] stringValue] doubleValue];
+        if (!parkingEndTime) {
+            if (speed == 0) {
+                parkingEndTime = [[self class] parseDateFormTimestampXMLNode:[node attributeForName:@"gpsTime"]];
+            }
+        } else {
+            if ((i == nodesCount - 1) || // is last point
+                ([[[rootElement.children[i+1] attributeForName:@"speed"] stringValue] doubleValue] > 0)) { // next point is moving
+                
+                CLLocation *location = [[self class] parseLocationFromXMLElement:node];
+                NSDate *parkingBeginTime = [[self class] parseDateFormTimestampXMLNode:[node attributeForName:@"gpsTime"]];
+                ALCarParkingInfo *parking = [[ALCarParkingInfo alloc] initWithLocation:location begin:parkingBeginTime end:parkingEndTime];
+                parkingEndTime = nil;
+                if (parking.duration >= minPrkingDuration) {
+                    [parkings addObject:parking];
+                }
+            }
+        }
     }
     self.coordinates = coords;
     self.coordinatesCount = nodesCount;
+    self.parkings = [parkings copy];
+}
+
++ (CLLocation*)parseLocationFromXMLElement:(GDataXMLElement*)element {
+    CLLocationDegrees latitude = [[[element attributeForName:@"latitude"] stringValue] doubleValue];
+    CLLocationDegrees longitude = [[[element attributeForName:@"longitude"] stringValue] doubleValue];
+    CLLocationDirection course = [[[element attributeForName:@"course"] stringValue] doubleValue];
+    CLLocationSpeed speed = [[[element attributeForName:@"speed"] stringValue] doubleValue] * KMPH_TO_MPH;
+    NSDate *timestamp = [[self class] parseDateFormTimestampXMLNode:[element attributeForName:@"gpsTime"]];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+  
+    return [[CLLocation alloc] initWithCoordinate:coordinate
+                                       altitude:0
+                             horizontalAccuracy:0
+                               verticalAccuracy:0
+                                         course:course
+                                          speed:speed
+                                      timestamp:timestamp];
+}
+                                             
++ (NSDate*)parseDateFormTimestampXMLNode:(GDataXMLNode*)element {
+    double gpsTime = [[element stringValue] doubleValue];
+    return [NSDate dateWithTimeIntervalSince1970:gpsTime * MS_TO_S];
 }
 
 @end

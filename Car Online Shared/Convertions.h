@@ -14,6 +14,7 @@
 
 - (NSString*)agoFromNow;
 - (NSString*)formattedString;
+- (NSString*)formattedTimeString;
 
 @end
 
