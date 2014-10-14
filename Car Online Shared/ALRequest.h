@@ -35,6 +35,4 @@ typedef void(^ALRequestCallback)(ALCarInfo *carInfo);
 
 @interface ALCarLocationRequest : ALRequest
 
-
-
 @end

@@ -12,9 +12,11 @@
 
 #import <MapKit/MapKit.h>
 
-#define SERVER_TIME_ZONE 4
 #define KMPH_TO_MPH 0.277777777777778
 #define MS_TO_S 0.001
+
+#define SERVER_TIME_ZONE 4
+#define MIN_PARKING_DURATION 300
 
 NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
 
@@ -66,7 +68,7 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
 
 #pragma mark -
 
-@interface ALCarParkingInfo ()
+@interface ALCarLocationPoint ()
 
 @property (nonatomic, strong, readwrite) CLLocation *location;
 @property (nonatomic, strong, readwrite) NSDate *startTime;
@@ -75,11 +77,12 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
 
 @end
 
-@implementation ALCarParkingInfo
+@implementation ALCarLocationPoint
 
-- (id)initWithLocation:(CLLocation*)location begin:(NSDate*)begin end:(NSDate*)end {
+- (id)initWithLocation:(CLLocation*)location begin:(NSDate*)begin end:(NSDate*)end lastLocation:(BOOL)lastLocation {
     self = [super init];
     if (self) {
+        _isLastLocation = lastLocation;
         _location = location;
         _beginTime = begin;
         _endTime = end;
@@ -95,27 +98,13 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
             [super description], self.location, self.beginTime, self.endTime, self.duration];
 }
 
-- (CLLocationCoordinate2D)coordinate {
-    return self.location.coordinate;
-}
-
-- (NSString*)title {
-    return @"Parking";
-}
-
-- (NSString*)subtitle {
-    return [NSString stringWithFormat:@"%@ - %@ (%@)", [self.beginTime formattedTimeString],
-            [self.endTime formattedTimeString], [@(self.duration / 60.) timeStringFromMinutes]];
-}
-
 @end
 
 @interface ALCarLocation ()
 
-@property (nonatomic, strong, readwrite) CLLocation *lastLocation;
-@property (nonatomic, strong, readwrite) NSArray *stopLocations;
 @property (nonatomic, assign, readwrite) CLLocationCoordinate2D *coordinates;
 @property (nonatomic, assign, readwrite) NSUInteger coordinatesCount;
+@property (nonatomic, strong, readwrite) ALCarLocationPoint *lastLocation;
 @property (nonatomic, strong, readwrite) NSArray *parkings;
 
 @end
@@ -147,14 +136,18 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
     // Parsing last location
     
     GDataXMLElement *firstNode = rootElement.children.firstObject;
-    self.lastLocation = [[self class] parseLocationFromXMLElement:firstNode];
-  
-    // Parsing coordinates
+    if (firstNode) {
+        CLLocation *location = [[self class] parseLocationFromXMLElement:firstNode];
+        self.lastLocation = [[ALCarLocationPoint alloc] initWithLocation:location begin:location.timestamp end:nil lastLocation:YES];
+    }
   
     NSDate *parkingEndTime = nil;
     NSMutableArray *parkings = [NSMutableArray array];
     CLLocationCoordinate2D* coords = malloc(nodesCount * sizeof(CLLocationCoordinate2D));
     for (int i = 0; i < nodesCount; i++) {
+    
+        // Processing coordinates
+        
         GDataXMLElement *node = rootElement.children[i];
         CLLocationDegrees latitude = [[[node attributeForName:@"latitude"] stringValue] doubleValue];
         CLLocationDegrees longitude = [[[node attributeForName:@"longitude"] stringValue] doubleValue];
@@ -162,7 +155,6 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
       
         // Processing parkings
         
-        static NSTimeInterval minPrkingDuration = 300;
         CLLocationSpeed speed = [[[node attributeForName:@"speed"] stringValue] doubleValue];
         if (!parkingEndTime) {
             if (speed == 0) {
@@ -173,10 +165,9 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
                 ([[[rootElement.children[i+1] attributeForName:@"speed"] stringValue] doubleValue] > 0)) { // next point is moving
                 
                 CLLocation *location = [[self class] parseLocationFromXMLElement:node];
-                NSDate *parkingBeginTime = [[self class] parseDateFormTimestampXMLNode:[node attributeForName:@"gpsTime"]];
-                ALCarParkingInfo *parking = [[ALCarParkingInfo alloc] initWithLocation:location begin:parkingBeginTime end:parkingEndTime];
+                ALCarLocationPoint *parking = [[ALCarLocationPoint alloc] initWithLocation:location begin:location.timestamp end:parkingEndTime lastLocation:NO];
                 parkingEndTime = nil;
-                if (parking.duration >= minPrkingDuration) {
+                if (parking.duration >= MIN_PARKING_DURATION) {
                     [parkings addObject:parking];
                 }
             }

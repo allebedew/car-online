@@ -58,4 +58,13 @@ static NSDateFormatter *formatter = nil;
     return [NSString stringWithFormat:@"%d:%.2d", hours, mins];
 }
 
+- (NSString*)timeStringFromSeconds {
+    NSInteger secs = self.integerValue;
+    NSInteger mins = secs / 60;
+    secs -= mins * 60;
+    NSInteger hours = mins / 60;
+    mins -= hours * 60;
+    return [NSString stringWithFormat:@"%d:%.2d:%.2d", hours, mins, secs];
+}
+
 @end

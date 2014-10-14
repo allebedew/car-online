@@ -113,6 +113,7 @@
 		A1F20804169570320066B2D9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
 		FA3FA530181ED82500A0DE4D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3FA52F181ED82500A0DE4D /* MapKit.framework */; };
 		FA4EBAF219D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */; };
+		FA9F0D8B19EDB74B0089DE62 /* ALCarLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */; };
 		FAA0B3FF19E91EF100C0294E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */; };
 		FAA0B40119E91FF800C0294E /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40019E91FF800C0294E /* Main.xcassets */; };
 		FAA0B40719E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
@@ -253,6 +254,8 @@
 		A1F20803169570320066B2D9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		FA3FA52F181ED82500A0DE4D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		FA9F0D8919EDB74B0089DE62 /* ALCarLocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCarLocationAnnotation.h; sourceTree = "<group>"; };
+		FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCarLocationAnnotation.m; sourceTree = "<group>"; };
 		FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		FAA0B40019E91FF800C0294E /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
 		FAA0B40519E9393400C0294E /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
@@ -556,6 +559,8 @@
 			children = (
 				FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */,
 				FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */,
+				FA9F0D8919EDB74B0089DE62 /* ALCarLocationAnnotation.h */,
+				FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */,
 				FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */,
 				A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */,
+				FA9F0D8B19EDB74B0089DE62 /* ALCarLocationAnnotation.m in Sources */,
 				A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */,
 				A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */,
 				A118E96915226C7000C6C89D /* ALSMSListController.m in Sources */,

@@ -21,5 +21,6 @@
 @interface NSNumber (Convertions)
 
 - (NSString*)timeStringFromMinutes;
+- (NSString*)timeStringFromSeconds;
 
 @end

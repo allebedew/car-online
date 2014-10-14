@@ -14,6 +14,10 @@
 NSString* const ALRequestAPIKey = @"api-key";
 NSString* const ALRequestErrorDomain = @"com.alexlebedev.alrequest";
 
+NSString* const kLocationCommand = @"gpslist";
+NSString* const kTelemetryCommand = @"telemetry";
+NSString* const kEventsCommand = @"events";
+
 float const responseProgressWeight = 0.3f;
 
 @interface ALRequest () <NSURLConnectionDelegate>
@@ -75,33 +79,35 @@ float const responseProgressWeight = 0.3f;
 }
 
 + (NSURL*)urlWithKey:(NSString*)key comand:(NSString*)comand beginDate:(NSDate*)beginDate endDate:(NSDate*)endDate {
-  NSParameterAssert(key != nil && comand != nil);
-  
-  if (!beginDate) {
-      
-      beginDate = [NSDate startOfTheDayDate];
-//      beginDate = [NSDate dateWithTimeIntervalSince1970:[beginDate timeIntervalSince1970] - 86400];
-  }
-  NSLog(@"%@ %@", [NSDate date], [NSDate startOfTheDayDate]);
-  NSString *beginDateString = [NSString stringWithFormat:@"%.0f000", [beginDate timeIntervalSince1970]];
-  
-  NSMutableArray *queryItems = [@[
+    NSParameterAssert(key != nil && comand != nil);
+
+    if (!beginDate) {
+        beginDate = [NSDate startOfTheDayDate];
+    //      beginDate = [NSDate dateWithTimeIntervalSince1970:[beginDate timeIntervalSince1970] - 86400];
+    }
+    NSString *beginDateString = [NSString stringWithFormat:@"%.0f000", [beginDate timeIntervalSince1970]];
+
+    NSMutableArray *queryItems = [@[
     [NSURLQueryItem queryItemWithName:@"skey" value:key],
     [NSURLQueryItem queryItemWithName:@"get" value:comand],
     [NSURLQueryItem queryItemWithName:@"begin" value:beginDateString] ] mutableCopy];
   
-  if (endDate) {
-    NSString *endDateString = [NSString stringWithFormat:@"%.0f000", [endDate timeIntervalSince1970]];
-    [queryItems addObject:[NSURLQueryItem queryItemWithName:@"end" value:endDateString]];
-  }
+    if (endDate) {
+        NSString *endDateString = [NSString stringWithFormat:@"%.0f000", [endDate timeIntervalSince1970]];
+        [queryItems addObject:[NSURLQueryItem queryItemWithName:@"end" value:endDateString]];
+    }
+    
+    if ([comand isEqual:@"gpslist"]) {
+//        [queryItems addObject:[NSURLQueryItem queryItemWithName:@"filter" value:@"valid"]];
+    }
 
-  NSURLComponents *urlComp = [[NSURLComponents alloc] init];
-  urlComp.scheme = @"http";
-  urlComp.host = @"api.car-online.ru";
-  urlComp.path = @"/v2";
-  urlComp.queryItems = queryItems;
-  
-  return urlComp.URL;
+    NSURLComponents *urlComp = [[NSURLComponents alloc] init];
+    urlComp.scheme = @"http";
+    urlComp.host = @"api.car-online.ru";
+    urlComp.path = @"/v2";
+    urlComp.queryItems = queryItems;
+
+    return urlComp.URL;
 }
 
 - (void)configureRequest {

@@ -23,8 +23,9 @@ extern NSString* const ALCarInfoErrorDomain;
 
 // ==============================================
 
-@interface ALCarParkingInfo : NSObject <MKAnnotation>
+@interface ALCarLocationPoint : NSObject
 
+@property (nonatomic, readonly) BOOL isLastLocation;
 @property (nonatomic, readonly) CLLocation *location;
 @property (nonatomic, readonly) NSDate *beginTime;
 @property (nonatomic, readonly) NSDate *endTime;
@@ -34,10 +35,10 @@ extern NSString* const ALCarInfoErrorDomain;
 
 @interface ALCarLocation : ALCarInfo
 
-@property (nonatomic, readonly) CLLocation *lastLocation;
 @property (nonatomic, readonly) CLLocationCoordinate2D *coordinates;
 @property (nonatomic, readonly) NSUInteger coordinatesCount;
-@property (nonatomic, readonly) NSArray *parkings;
+@property (nonatomic, readonly) ALCarLocationPoint *lastLocation;
+@property (nonatomic, readonly) NSArray *parkings; // array of ALCarLocationPoint objects
 
 @end
 
