@@ -161,13 +161,14 @@ NSString* const ALCarInfoErrorDomain = @"com.alexlebedev.carinfo";
                 parkingEndTime = [[self class] parseDateFormTimestampXMLNode:[node attributeForName:@"gpsTime"]];
             }
         } else {
-            if ((i == nodesCount - 1) || // is last point
+            BOOL isLastPoint = (i == nodesCount - 1);
+            if (isLastPoint ||
                 ([[[rootElement.children[i+1] attributeForName:@"speed"] stringValue] doubleValue] > 0)) { // next point is moving
                 
                 CLLocation *location = [[self class] parseLocationFromXMLElement:node];
                 ALCarLocationPoint *parking = [[ALCarLocationPoint alloc] initWithLocation:location begin:location.timestamp end:parkingEndTime lastLocation:NO];
                 parkingEndTime = nil;
-                if (parking.duration >= MIN_PARKING_DURATION) {
+                if (parking.duration >= MIN_PARKING_DURATION || isLastPoint) {
                     [parkings addObject:parking];
                 }
             }

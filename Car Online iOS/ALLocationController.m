@@ -248,6 +248,9 @@
         pin.pinColor = locationAnnotation.isLastLocation ? MKPinAnnotationColorRed : MKPinAnnotationColorPurple;
         return pin;
     }
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
     NSParameterAssert(NO);
     return nil;
 }

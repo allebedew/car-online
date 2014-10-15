@@ -1,6 +1,9 @@
-1. migrate no nsurlsession on swift
-2. 64bit warnings
-3. core location ios8 warnings
-4. ability to check other days
-5. display stops
-- settings with valid points
+- migrate no nsurlsession on swift
+
+- 64bit warnings
+- core location ios8 warnings
+
+- update settings screen with valid points and date
+
+- design pin views
+- design route views
