@@ -10,29 +10,29 @@
 	<string>Car Online</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5C9C094AE09B05F9BDAE21A5EDD1E12BD470BDA7</key>
-		<string>https://github.com/allebedew/car-online.git</string>
+		<key>F7E01CF967D7E89C8D8EC88E5BE6946733AD4728</key>
+		<string>github.com:allebedew/car-online.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Car Online.xcodeproj/project.xcworkspace</string>
+	<string>Car Online.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5C9C094AE09B05F9BDAE21A5EDD1E12BD470BDA7</key>
+		<key>F7E01CF967D7E89C8D8EC88E5BE6946733AD4728</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/allebedew/car-online.git</string>
+	<string>github.com:allebedew/car-online.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5C9C094AE09B05F9BDAE21A5EDD1E12BD470BDA7</string>
+	<string>F7E01CF967D7E89C8D8EC88E5BE6946733AD4728</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5C9C094AE09B05F9BDAE21A5EDD1E12BD470BDA7</string>
+			<string>F7E01CF967D7E89C8D8EC88E5BE6946733AD4728</string>
 			<key>IDESourceControlWCCName</key>
 			<string>car-online</string>
 		</dict>

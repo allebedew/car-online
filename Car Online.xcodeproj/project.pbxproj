@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21707D5117A82CD89B4BFFE3 /* libPods-Car Online.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0888F6FB40F8A24BA29CDAD3 /* libPods-Car Online.a */; };
+		3C2832D8B387CCE21AAFDE57 /* libPods-Car Online Desktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 617504C495B77CEF49E3BB94 /* libPods-Car Online Desktop.a */; };
 		A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */ = {isa = PBXBuildFile; fileRef = A10DE77B1517CD20000A7EEA /* Convertions.m */; };
 		A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10DE77F1517D9BD000A7EEA /* ALEventsController.m */; };
 		A118E93E1522648F00C6C89D /* EventTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118E93D1522648F00C6C89D /* EventTypes.plist */; };
@@ -128,6 +130,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0592792BE6F3F39ECABB0144 /* Pods-Car Online.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Online.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car Online/Pods-Car Online.release.xcconfig"; sourceTree = "<group>"; };
+		0888F6FB40F8A24BA29CDAD3 /* libPods-Car Online.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car Online.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52659F50B5D61C8D4CCA4B17 /* Pods-Car Online Desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Online Desktop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car Online Desktop/Pods-Car Online Desktop.debug.xcconfig"; sourceTree = "<group>"; };
+		5FB182DAD81A9E311A73FA69 /* Pods-Car Online Desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Online Desktop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car Online Desktop/Pods-Car Online Desktop.release.xcconfig"; sourceTree = "<group>"; };
+		617504C495B77CEF49E3BB94 /* libPods-Car Online Desktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car Online Desktop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10DE77A1517CD20000A7EEA /* Convertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convertions.h; sourceTree = "<group>"; };
 		A10DE77B1517CD20000A7EEA /* Convertions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Convertions.m; sourceTree = "<group>"; };
 		A10DE77E1517D9BD000A7EEA /* ALEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventsController.h; sourceTree = "<group>"; };
@@ -252,6 +259,7 @@
 		A1EA52DD17CBA3EE00475C5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1EA52E417CBA3EE00475C5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1F20803169570320066B2D9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		CE7ADCB920DBCE842E4B44C8 /* Pods-Car Online.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Online.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car Online/Pods-Car Online.debug.xcconfig"; sourceTree = "<group>"; };
 		FA3FA52F181ED82500A0DE4D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FA9F0D8919EDB74B0089DE62 /* ALCarLocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCarLocationAnnotation.h; sourceTree = "<group>"; };
@@ -278,6 +286,7 @@
 				A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */,
 				A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */,
 				A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */,
+				21707D5117A82CD89B4BFFE3 /* libPods-Car Online.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,12 +297,24 @@
 				FA3FA530181ED82500A0DE4D /* MapKit.framework in Frameworks */,
 				FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */,
 				FF357DC8181EBF1F00F3DF61 /* libxml2.2.dylib in Frameworks */,
+				3C2832D8B387CCE21AAFDE57 /* libPods-Car Online Desktop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B41D4CAE575DE9BC6BE49E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE7ADCB920DBCE842E4B44C8 /* Pods-Car Online.debug.xcconfig */,
+				0592792BE6F3F39ECABB0144 /* Pods-Car Online.release.xcconfig */,
+				52659F50B5D61C8D4CCA4B17 /* Pods-Car Online Desktop.debug.xcconfig */,
+				5FB182DAD81A9E311A73FA69 /* Pods-Car Online Desktop.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A10DE7891517EB99000A7EEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +460,7 @@
 				A1EA52CB17CBA3EE00475C5E /* Car Online Desktop */,
 				A1B2ADCF15176B2D0095FD7D /* Frameworks */,
 				A1B2ADCD15176B2D0095FD7D /* Products */,
+				02B41D4CAE575DE9BC6BE49E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -465,6 +487,8 @@
 				A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */,
 				A1EA52E417CBA3EE00475C5E /* XCTest.framework */,
 				A1EA52C717CBA3EE00475C5E /* Other Frameworks */,
+				0888F6FB40F8A24BA29CDAD3 /* libPods-Car Online.a */,
+				617504C495B77CEF49E3BB94 /* libPods-Car Online Desktop.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -572,9 +596,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B2ADED15176B2D0095FD7D /* Build configuration list for PBXNativeTarget "Car Online" */;
 			buildPhases = (
+				C383527EDC102C6AC17471FA /* Check Pods Manifest.lock */,
 				A1B2ADC815176B2D0095FD7D /* Sources */,
 				A1B2ADC915176B2D0095FD7D /* Frameworks */,
 				A1B2ADCA15176B2D0095FD7D /* Resources */,
+				8444A80271F9C7A1250CC0DE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -589,9 +615,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1EA52F117CBA3EE00475C5E /* Build configuration list for PBXNativeTarget "Car Online Desktop" */;
 			buildPhases = (
+				8FACA9D217BFE394F41FC354 /* Check Pods Manifest.lock */,
 				A1EA52C017CBA3EE00475C5E /* Sources */,
 				A1EA52C117CBA3EE00475C5E /* Frameworks */,
 				A1EA52C217CBA3EE00475C5E /* Resources */,
+				660B14CA8BADAE3011E2357E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -746,6 +774,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		660B14CA8BADAE3011E2357E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Car Online Desktop/Pods-Car Online Desktop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8444A80271F9C7A1250CC0DE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Car Online/Pods-Car Online-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FACA9D217BFE394F41FC354 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C383527EDC102C6AC17471FA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A1B2ADC815176B2D0095FD7D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -875,6 +966,7 @@
 		};
 		A1B2ADEE15176B2D0095FD7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE7ADCB920DBCE842E4B44C8 /* Pods-Car Online.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -882,10 +974,16 @@
 				CURRENT_PROJECT_VERSION = 105;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online iOS/Car Online-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Car Online iOS/Car Online-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lxml2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -895,6 +993,7 @@
 		};
 		A1B2ADEF15176B2D0095FD7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0592792BE6F3F39ECABB0144 /* Pods-Car Online.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -902,10 +1001,16 @@
 				CURRENT_PROJECT_VERSION = 105;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online iOS/Car Online-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "Car Online iOS/Car Online-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-lxml2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -915,6 +1020,7 @@
 		};
 		A1EA52F217CBA3EE00475C5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52659F50B5D61C8D4CCA4B17 /* Pods-Car Online Desktop.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -932,10 +1038,6 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online Desktop/Car Online Desktop-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"DESKTOP=1",
-				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -955,6 +1057,7 @@
 		};
 		A1EA52F317CBA3EE00475C5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FB182DAD81A9E311A73FA69 /* Pods-Car Online Desktop.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -973,7 +1076,6 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Car Online Desktop/Car Online Desktop-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "DESKTOP=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				HEADER_SEARCH_PATHS = (
