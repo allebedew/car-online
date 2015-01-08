@@ -31,11 +31,11 @@
 
 - (IBAction)loadData:(id)sender {
     [ALRequest setAPIKey:@"1e23019c8FdbffB2bec223311e1682"];
-    [ALRequest requestWithType:ALRequestTypeGetTelemetry callback:^(BOOL success, id data) {
-        if (!success) {
+    [ALRequest requestCarTelemetryWithCallback:^(ALCarInfo *carInfo) {
+        if (!carInfo) {
             return;
         }
-        NSDictionary *telemetry = [data lastObject];
+        NSDictionary *telemetry = nil;
         [self.textLabel setStringValue:[NSString stringWithFormat:@"%ld stands, %ld km, %ld max",
                                         (long)[telemetry[@"standsCount"] integerValue], [telemetry[@"mileage"] integerValue], [telemetry[@"maxSpeed"] integerValue]]];
     }];

@@ -93,17 +93,6 @@
 		A146998915239BE8001C7DD7 /* ext-zone-microwave.gif in Resources */ = {isa = PBXBuildFile; fileRef = A146997615239BE8001C7DD7 /* ext-zone-microwave.gif */; };
 		A17367A417D9F11F0044DA9B /* ALMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A17367A217D9F11F0044DA9B /* ALMainViewController.m */; };
 		A17367A517D9F11F0044DA9B /* ALMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17367A317D9F11F0044DA9B /* ALMainViewController.xib */; };
-		A174180617BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A174180817BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard */; };
-		A174180E17BA3DF1003D33E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A174181017BA3DF1003D33E4 /* Localizable.strings */; };
-		A1858B4C172C7DDF0061AFA0 /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B46172C7DDF0061AFA0 /* events.png */; };
-		A1858B4D172C7DDF0061AFA0 /* events@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B47172C7DDF0061AFA0 /* events@2x.png */; };
-		A1858B4E172C7DDF0061AFA0 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B48172C7DDF0061AFA0 /* location.png */; };
-		A1858B4F172C7DDF0061AFA0 /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B49172C7DDF0061AFA0 /* location@2x.png */; };
-		A1858B50172C7DDF0061AFA0 /* sms.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B4A172C7DDF0061AFA0 /* sms.png */; };
-		A1858B51172C7DDF0061AFA0 /* sms@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B4B172C7DDF0061AFA0 /* sms@2x.png */; };
-		A1858B53172C8FCB0061AFA0 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B52172C8FCB0061AFA0 /* icon@2x.png */; };
-		A1858B55172C8FCE0061AFA0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B54172C8FCE0061AFA0 /* icon.png */; };
-		A1858B57172C90EE0061AFA0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1858B56172C90EE0061AFA0 /* Default@2x.png */; };
 		A1B2ADD115176B2D0095FD7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD015176B2D0095FD7D /* UIKit.framework */; };
 		A1B2ADD315176B2D0095FD7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD215176B2D0095FD7D /* Foundation.framework */; };
 		A1B2ADD515176B2D0095FD7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADD415176B2D0095FD7D /* CoreGraphics.framework */; };
@@ -115,7 +104,6 @@
 		A1B2ADF915178EE70095FD7D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADF815178EE70095FD7D /* MapKit.framework */; };
 		A1B2ADFB151798D20095FD7D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B2ADFA151798D10095FD7D /* CoreLocation.framework */; };
 		A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B48D15262B5000A78472 /* Sevastopol.gpx */; };
-		A1D6B4C9152701BC00A78472 /* ALRequest.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B4C8152701BC00A78472 /* ALRequest.plist */; };
 		A1EA52D017CBA3EE00475C5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52CE17CBA3EE00475C5E /* InfoPlist.strings */; };
 		A1EA52D217CBA3EE00475C5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1EA52D117CBA3EE00475C5E /* main.m */; };
 		A1EA52D617CBA3EE00475C5E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52D417CBA3EE00475C5E /* Credits.rtf */; };
@@ -123,13 +111,20 @@
 		A1EA52DC17CBA3EE00475C5E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52DA17CBA3EE00475C5E /* MainMenu.xib */; };
 		A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1EA52DD17CBA3EE00475C5E /* Images.xcassets */; };
 		A1F20804169570320066B2D9 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
-		A1F20807169574650066B2D9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1F20806169574650066B2D9 /* Default-568h@2x.png */; };
 		FA3FA530181ED82500A0DE4D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA3FA52F181ED82500A0DE4D /* MapKit.framework */; };
+		FA4EBAF219D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */; };
+		FA9F0D8B19EDB74B0089DE62 /* ALCarLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */; };
+		FAA0B3FF19E91EF100C0294E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */; };
+		FAA0B40119E91FF800C0294E /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40019E91FF800C0294E /* Main.xcassets */; };
+		FAA0B40719E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
+		FAA0B40819E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
+		FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */; };
+		FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFA3E75189C400800AF6F45 /* ALCarInfo.m */; };
+		FAFA3E77189C400800AF6F45 /* ALCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFA3E75189C400800AF6F45 /* ALCarInfo.m */; };
 		FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF357DC5181EBEB700F3DF61 /* Cocoa.framework */; };
 		FF357DC7181EBF0A00F3DF61 /* ALRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF1151771150095FD7D /* ALRequest.m */; };
 		FF357DC8181EBF1F00F3DF61 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F20803169570320066B2D9 /* libxml2.2.dylib */; };
 		FF357DC9181EC09200F3DF61 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FF357DCA181EC18200F3DF61 /* ALRequest.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1D6B4C8152701BC00A78472 /* ALRequest.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,7 +132,7 @@
 		A10DE77B1517CD20000A7EEA /* Convertions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Convertions.m; sourceTree = "<group>"; };
 		A10DE77E1517D9BD000A7EEA /* ALEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventsController.h; sourceTree = "<group>"; };
 		A10DE77F1517D9BD000A7EEA /* ALEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALEventsController.m; sourceTree = "<group>"; };
-		A118E93D1522648F00C6C89D /* EventTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = EventTypes.plist; path = "Car Online/EventTypes.plist"; sourceTree = "<group>"; };
+		A118E93D1522648F00C6C89D /* EventTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EventTypes.plist; sourceTree = "<group>"; };
 		A118E940152264F500C6C89D /* request-foto.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "request-foto.gif"; sourceTree = "<group>"; };
 		A118E941152264F500C6C89D /* valetoff.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = valetoff.gif; sourceTree = "<group>"; };
 		A118E942152264F500C6C89D /* valeton.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = valeton.gif; sourceTree = "<group>"; };
@@ -224,19 +219,6 @@
 		A17367A117D9F11F0044DA9B /* ALMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMainViewController.h; sourceTree = "<group>"; };
 		A17367A217D9F11F0044DA9B /* ALMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMainViewController.m; sourceTree = "<group>"; };
 		A17367A317D9F11F0044DA9B /* ALMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALMainViewController.xib; sourceTree = "<group>"; };
-		A174180717BA3B7D003D33E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		A174180B17BA3BA1003D33E4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainStoryboard_iPhone.strings; sourceTree = "<group>"; };
-		A174180F17BA3DF1003D33E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A174181117BA3DF7003D33E4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A1858B46172C7DDF0061AFA0 /* events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = events.png; sourceTree = "<group>"; };
-		A1858B47172C7DDF0061AFA0 /* events@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "events@2x.png"; sourceTree = "<group>"; };
-		A1858B48172C7DDF0061AFA0 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
-		A1858B49172C7DDF0061AFA0 /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location@2x.png"; sourceTree = "<group>"; };
-		A1858B4A172C7DDF0061AFA0 /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sms.png; sourceTree = "<group>"; };
-		A1858B4B172C7DDF0061AFA0 /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms@2x.png"; sourceTree = "<group>"; };
-		A1858B52172C8FCB0061AFA0 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
-		A1858B54172C8FCE0061AFA0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
-		A1858B56172C90EE0061AFA0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Car Online/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		A1B2ADCC15176B2D0095FD7D /* Car Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2ADD015176B2D0095FD7D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1B2ADD215176B2D0095FD7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -255,7 +237,6 @@
 		A1B2ADF815178EE70095FD7D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A1B2ADFA151798D10095FD7D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A1D6B48D15262B5000A78472 /* Sevastopol.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sevastopol.gpx; sourceTree = "<group>"; };
-		A1D6B4C8152701BC00A78472 /* ALRequest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ALRequest.plist; sourceTree = "<group>"; };
 		A1EA52C417CBA3EE00475C5E /* Car Online Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Online Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1EA52C817CBA3EE00475C5E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		A1EA52C917CBA3EE00475C5E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -271,8 +252,17 @@
 		A1EA52DD17CBA3EE00475C5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1EA52E417CBA3EE00475C5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1F20803169570320066B2D9 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
-		A1F20806169574650066B2D9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA3FA52F181ED82500A0DE4D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		FA9F0D8919EDB74B0089DE62 /* ALCarLocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALCarLocationAnnotation.h; sourceTree = "<group>"; };
+		FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALCarLocationAnnotation.m; sourceTree = "<group>"; };
+		FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		FAA0B40019E91FF800C0294E /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
+		FAA0B40519E9393400C0294E /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
+		FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPathRenderer.h; sourceTree = "<group>"; };
+		FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPathRenderer.m; sourceTree = "<group>"; };
+		FAFA3E74189C400800AF6F45 /* ALCarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALCarInfo.h; path = "Car Online Shared/ALCarInfo.h"; sourceTree = SOURCE_ROOT; };
+		FAFA3E75189C400800AF6F45 /* ALCarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALCarInfo.m; path = "Car Online Shared/ALCarInfo.m"; sourceTree = SOURCE_ROOT; };
 		FF357DC5181EBEB700F3DF61 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -309,14 +299,14 @@
 			children = (
 				A1B2ADF0151771150095FD7D /* ALRequest.h */,
 				A1B2ADF1151771150095FD7D /* ALRequest.m */,
-				A1D6B4C8152701BC00A78472 /* ALRequest.plist */,
+				FAFA3E74189C400800AF6F45 /* ALCarInfo.h */,
+				FAFA3E75189C400800AF6F45 /* ALCarInfo.m */,
 				A1B2ADF315177CE40095FD7D /* GDataXMLNode.h */,
 				A1B2ADF415177CE40095FD7D /* GDataXMLNode.m */,
 				A10DE77A1517CD20000A7EEA /* Convertions.h */,
 				A10DE77B1517CD20000A7EEA /* Convertions.m */,
 			);
 			name = Model;
-			path = "Car Online";
 			sourceTree = "<group>";
 		};
 		A118E93F152264D400C6C89D /* Event Icons */ = {
@@ -401,22 +391,7 @@
 				A118E9641522668D00C6C89D /* connect-time.gif */,
 			);
 			name = "Event Icons";
-			path = "Car Online/EventIcons";
-			sourceTree = "<group>";
-		};
-		A15B5A1A1570C1BE00667BCB /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				A1858B54172C8FCE0061AFA0 /* icon.png */,
-				A1858B52172C8FCB0061AFA0 /* icon@2x.png */,
-				A1858B46172C7DDF0061AFA0 /* events.png */,
-				A1858B47172C7DDF0061AFA0 /* events@2x.png */,
-				A1858B48172C7DDF0061AFA0 /* location.png */,
-				A1858B49172C7DDF0061AFA0 /* location@2x.png */,
-				A1858B4A172C7DDF0061AFA0 /* sms.png */,
-				A1858B4B172C7DDF0061AFA0 /* sms@2x.png */,
-			);
-			path = Icons;
+			path = EventIcons;
 			sourceTree = "<group>";
 		};
 		A17367A017D9EEFF0044DA9B /* Controllers */ = {
@@ -432,14 +407,14 @@
 		A1ACEACB16F5D8F000D15ACB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A118E97315237BC200C6C89D /* ALSettingsController.h */,
-				A118E97415237BC200C6C89D /* ALSettingsController.m */,
 				A1B2ADE215176B2D0095FD7D /* ALLocationController.h */,
 				A1B2ADE315176B2D0095FD7D /* ALLocationController.m */,
 				A10DE77E1517D9BD000A7EEA /* ALEventsController.h */,
 				A10DE77F1517D9BD000A7EEA /* ALEventsController.m */,
 				A118E96615226C7000C6C89D /* ALSMSListController.h */,
 				A118E96715226C7000C6C89D /* ALSMSListController.m */,
+				A118E97315237BC200C6C89D /* ALSettingsController.h */,
+				A118E97415237BC200C6C89D /* ALSettingsController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -447,21 +422,20 @@
 		A1ACEACC16F5DF6800D15ACB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A15B5A1A1570C1BE00667BCB /* Icons */,
-				A174180817BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard */,
-				A174181017BA3DF1003D33E4 /* Localizable.strings */,
-				A1858B56172C90EE0061AFA0 /* Default@2x.png */,
-				A1F20806169574650066B2D9 /* Default-568h@2x.png */,
+				FAA0B40019E91FF800C0294E /* Main.xcassets */,
 				A118E96E15226CCF00C6C89D /* SMSList.plist */,
+				A1D6B48D15262B5000A78472 /* Sevastopol.gpx */,
+				FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A1B2ADC115176B2C0095FD7D = {
 			isa = PBXGroup;
 			children = (
-				A1EA52F717CBA4A500475C5E /* Common */,
-				A1B2ADD615176B2D0095FD7D /* Car Online */,
+				FAA0B40519E9393400C0294E /* todo */,
+				A1EA52F717CBA4A500475C5E /* Car Online Shared */,
+				A1B2ADD615176B2D0095FD7D /* Car Online iOS */,
 				A1EA52CB17CBA3EE00475C5E /* Car Online Desktop */,
 				A1B2ADCF15176B2D0095FD7D /* Frameworks */,
 				A1B2ADCD15176B2D0095FD7D /* Products */,
@@ -495,22 +469,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A1B2ADD615176B2D0095FD7D /* Car Online */ = {
+		A1B2ADD615176B2D0095FD7D /* Car Online iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */,
+				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
+				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
+				FAA0B40B19E9E86500C0294E /* Views */,
 				A1ACEACB16F5D8F000D15ACB /* Controllers */,
 				A1ACEACC16F5DF6800D15ACB /* Resources */,
 				A1B2ADD715176B2D0095FD7D /* Supporting Files */,
-				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
-				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
 			);
-			path = "Car Online";
+			path = "Car Online iOS";
 			sourceTree = "<group>";
 		};
 		A1B2ADD715176B2D0095FD7D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A1D6B48D15262B5000A78472 /* Sevastopol.gpx */,
 				A1B2ADD815176B2D0095FD7D /* Car Online-Info.plist */,
 				A1B2ADDC15176B2D0095FD7D /* main.m */,
 				A1B2ADDE15176B2D0095FD7D /* Car Online-Prefix.pch */,
@@ -552,13 +527,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A1EA52F717CBA4A500475C5E /* Common */ = {
+		A1EA52F717CBA4A500475C5E /* Car Online Shared */ = {
 			isa = PBXGroup;
 			children = (
 				A10DE7891517EB99000A7EEA /* Model */,
 				A1EA52F817CBA4E500475C5E /* Resources */,
 			);
-			name = Common;
+			path = "Car Online Shared";
 			sourceTree = "<group>";
 		};
 		A1EA52F817CBA4E500475C5E /* Resources */ = {
@@ -567,7 +542,7 @@
 				A118E93F152264D400C6C89D /* Event Icons */,
 				A118E93D1522648F00C6C89D /* EventTypes.plist */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A1EA52F917CBA5B100475C5E /* Resources */ = {
@@ -579,6 +554,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		FAA0B40B19E9E86500C0294E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */,
+				FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */,
+				FA9F0D8919EDB74B0089DE62 /* ALCarLocationAnnotation.h */,
+				FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -586,7 +572,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B2ADED15176B2D0095FD7D /* Build configuration list for PBXNativeTarget "Car Online" */;
 			buildPhases = (
-				FA9FFD6F18180DAF00971549 /* ShellScript */,
 				A1B2ADC815176B2D0095FD7D /* Sources */,
 				A1B2ADC915176B2D0095FD7D /* Frameworks */,
 				A1B2ADCA15176B2D0095FD7D /* Resources */,
@@ -624,10 +609,10 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AL;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				TargetAttributes = {
 					A1B2ADCB15176B2D0095FD7D = {
-						DevelopmentTeam = PBLK7VB9B2;
+						DevelopmentTeam = JTATZGJR5N;
 					};
 					A1EA52C317CBA3EE00475C5E = {
 						DevelopmentTeam = PBLK7VB9B2;
@@ -675,7 +660,6 @@
 				A118E95E152264F500C6C89D /* lockcopen01.gif in Resources */,
 				A118E95F152264F500C6C89D /* motor-start-distance.gif in Resources */,
 				A118E960152264F500C6C89D /* arm.gif in Resources */,
-				A174180E17BA3DF1003D33E4 /* Localizable.strings in Resources */,
 				A118E961152264F500C6C89D /* disarm.gif in Resources */,
 				A118E962152264F500C6C89D /* user-sms.gif in Resources */,
 				A118E963152264F500C6C89D /* user-call.gif in Resources */,
@@ -689,6 +673,7 @@
 				A14699271523961C001C7DD7 /* input-1-on.gif in Resources */,
 				A14699281523961C001C7DD7 /* access-off.gif in Resources */,
 				A14699291523961C001C7DD7 /* access-on.gif in Resources */,
+				FAA0B3FF19E91EF100C0294E /* Launch Screen.xib in Resources */,
 				A146992A1523961C001C7DD7 /* ignition-off.gif in Resources */,
 				A146992B1523961C001C7DD7 /* ignition-on.gif in Resources */,
 				A146992C1523961C001C7DD7 /* hood-close.gif in Resources */,
@@ -701,6 +686,7 @@
 				A1469943152397D7001C7DD7 /* movement-start.gif in Resources */,
 				A1469944152397D7001C7DD7 /* changeTemperature.gif in Resources */,
 				A1469945152397D7001C7DD7 /* zonaout.gif in Resources */,
+				FAA0B40719E9393400C0294E /* todo in Resources */,
 				A1469946152397D7001C7DD7 /* zonain.gif in Resources */,
 				A1469947152397D7001C7DD7 /* incomingSms.gif in Resources */,
 				A1469948152397D7001C7DD7 /* reserve-power-on.gif in Resources */,
@@ -708,6 +694,7 @@
 				A146994A152397D7001C7DD7 /* trace-stop.gif in Resources */,
 				A146994B152397D7001C7DD7 /* trace.gif in Resources */,
 				A146994C152397D7001C7DD7 /* trace-start.gif in Resources */,
+				FA4EBAF219D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard in Resources */,
 				A146994D152397D7001C7DD7 /* motor-off.gif in Resources */,
 				A146994E152397D7001C7DD7 /* motor-start-error.gif in Resources */,
 				A146994F152397D7001C7DD7 /* motor-start-timer.gif in Resources */,
@@ -721,6 +708,7 @@
 				A1469961152399FD001C7DD7 /* gsm-sector-change.gif in Resources */,
 				A1469962152399FD001C7DD7 /* gps-recover.gif in Resources */,
 				A1469963152399FD001C7DD7 /* gps-fail.gif in Resources */,
+				FAA0B40119E91FF800C0294E /* Main.xcassets in Resources */,
 				A146997715239BE8001C7DD7 /* sos.gif in Resources */,
 				A146997815239BE8001C7DD7 /* reserve-power-off.gif in Resources */,
 				A146997915239BE8001C7DD7 /* main-power-off.gif in Resources */,
@@ -740,18 +728,6 @@
 				A146998815239BE8001C7DD7 /* light-shock.gif in Resources */,
 				A146998915239BE8001C7DD7 /* ext-zone-microwave.gif in Resources */,
 				A1D6B48E15262B5000A78472 /* Sevastopol.gpx in Resources */,
-				A174180617BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard in Resources */,
-				A1D6B4C9152701BC00A78472 /* ALRequest.plist in Resources */,
-				A1F20807169574650066B2D9 /* Default-568h@2x.png in Resources */,
-				A1858B4C172C7DDF0061AFA0 /* events.png in Resources */,
-				A1858B4D172C7DDF0061AFA0 /* events@2x.png in Resources */,
-				A1858B4E172C7DDF0061AFA0 /* location.png in Resources */,
-				A1858B4F172C7DDF0061AFA0 /* location@2x.png in Resources */,
-				A1858B50172C7DDF0061AFA0 /* sms.png in Resources */,
-				A1858B51172C7DDF0061AFA0 /* sms@2x.png in Resources */,
-				A1858B53172C8FCB0061AFA0 /* icon@2x.png in Resources */,
-				A1858B55172C8FCE0061AFA0 /* icon.png in Resources */,
-				A1858B57172C90EE0061AFA0 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,32 +735,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA0B40819E9393400C0294E /* todo in Resources */,
 				A17367A517D9F11F0044DA9B /* ALMainViewController.xib in Resources */,
 				A1EA52D017CBA3EE00475C5E /* InfoPlist.strings in Resources */,
 				A1EA52DE17CBA3EE00475C5E /* Images.xcassets in Resources */,
 				A1EA52D617CBA3EE00475C5E /* Credits.rtf in Resources */,
 				A1EA52DC17CBA3EE00475C5E /* MainMenu.xib in Resources */,
-				FF357DCA181EC18200F3DF61 /* ALRequest.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		FA9FFD6F18180DAF00971549 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "agvtool next-version -all";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1B2ADC815176B2D0095FD7D /* Sources */ = {
@@ -795,7 +755,10 @@
 				A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */,
 				A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */,
 				A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */,
+				FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */,
+				FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */,
 				A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */,
+				FA9F0D8B19EDB74B0089DE62 /* ALCarLocationAnnotation.m in Sources */,
 				A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */,
 				A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */,
 				A118E96915226C7000C6C89D /* ALSMSListController.m in Sources */,
@@ -810,6 +773,7 @@
 				FF357DC7181EBF0A00F3DF61 /* ALRequest.m in Sources */,
 				A1EA52D217CBA3EE00475C5E /* main.m in Sources */,
 				FF357DC9181EC09200F3DF61 /* GDataXMLNode.m in Sources */,
+				FAFA3E77189C400800AF6F45 /* ALCarInfo.m in Sources */,
 				A1EA52D917CBA3EE00475C5E /* ALAppDelegate.m in Sources */,
 				A17367A417D9F11F0044DA9B /* ALMainViewController.m in Sources */,
 			);
@@ -818,24 +782,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A174180817BA3B7D003D33E4 /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A174180717BA3B7D003D33E4 /* Base */,
-				A174180B17BA3BA1003D33E4 /* ru */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		A174181017BA3DF1003D33E4 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A174180F17BA3DF1003D33E4 /* Base */,
-				A174181117BA3DF7003D33E4 /* ru */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		A1EA52CE17CBA3EE00475C5E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -872,8 +818,10 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -881,12 +829,13 @@
 					"$(inherited)",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -903,16 +852,19 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -924,16 +876,19 @@
 		A1B2ADEE15176B2D0095FD7D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 105;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Car Online/Car Online-Prefix.pch";
+				GCC_PREFIX_HEADER = "Car Online iOS/Car Online-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "Car Online/Car Online-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "Car Online iOS/Car Online-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -941,16 +896,19 @@
 		A1B2ADEF15176B2D0095FD7D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 17;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 105;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Car Online/Car Online-Prefix.pch";
+				GCC_PREFIX_HEADER = "Car Online iOS/Car Online-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "Car Online/Car Online-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				INFOPLIST_FILE = "Car Online iOS/Car Online-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
