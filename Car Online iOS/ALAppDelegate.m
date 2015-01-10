@@ -8,7 +8,15 @@
 
 #import "ALAppDelegate.h"
 
+#import "AFNetworking.h"
+
 @import CoreLocation;
+
+@interface ALAppDelegate ()
+
+@property (nonatomic, strong, readwrite) AFURLSessionManager *sessionManager;
+
+@end
 
 @implementation ALAppDelegate
 
@@ -28,6 +36,17 @@
     [self.window makeKeyAndVisible];
   
     return YES;
+}
+
++ (instancetype)appDelegate {
+    return [UIApplication sharedApplication].delegate;
+}
+
+- (AFURLSessionManager*)sessionManager {
+    if (!_sessionManager) {
+        _sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:nil];
+    }
+    return _sessionManager;
 }
 
 @end

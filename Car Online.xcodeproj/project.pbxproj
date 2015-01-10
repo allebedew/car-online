@@ -35,6 +35,9 @@
 		A118E96F15226CCF00C6C89D /* SMSList.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118E96E15226CCF00C6C89D /* SMSList.plist */; };
 		A118E97115226FA000C6C89D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A118E97015226FA000C6C89D /* MessageUI.framework */; };
 		A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A118E97415237BC200C6C89D /* ALSettingsController.m */; };
+		A13589B61A5EEA7E00C9F2F3 /* ALRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A13589B51A5EEA7E00C9F2F3 /* ALRequestFactory.m */; };
+		A13589B91A5EF00E00C9F2F3 /* ALTelemetryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A13589B81A5EF00E00C9F2F3 /* ALTelemetryModel.m */; };
+		A13589BC1A5F452E00C9F2F3 /* ALPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A13589BB1A5F452E00C9F2F3 /* ALPointModel.m */; };
 		A14699211523961C001C7DD7 /* input-3-off.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699101523961C001C7DD7 /* input-3-off.gif */; };
 		A14699221523961C001C7DD7 /* input-3-on.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699111523961C001C7DD7 /* input-3-on.gif */; };
 		A14699231523961C001C7DD7 /* input-2-off.gif in Resources */ = {isa = PBXBuildFile; fileRef = A14699121523961C001C7DD7 /* input-2-off.gif */; };
@@ -165,6 +168,12 @@
 		A118E97015226FA000C6C89D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A118E97315237BC200C6C89D /* ALSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALSettingsController.h; sourceTree = "<group>"; };
 		A118E97415237BC200C6C89D /* ALSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALSettingsController.m; sourceTree = "<group>"; };
+		A13589B41A5EEA7E00C9F2F3 /* ALRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALRequestFactory.h; sourceTree = "<group>"; };
+		A13589B51A5EEA7E00C9F2F3 /* ALRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALRequestFactory.m; sourceTree = "<group>"; };
+		A13589B71A5EF00E00C9F2F3 /* ALTelemetryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALTelemetryModel.h; sourceTree = "<group>"; };
+		A13589B81A5EF00E00C9F2F3 /* ALTelemetryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTelemetryModel.m; sourceTree = "<group>"; };
+		A13589BA1A5F452E00C9F2F3 /* ALPointModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPointModel.h; sourceTree = "<group>"; };
+		A13589BB1A5F452E00C9F2F3 /* ALPointModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPointModel.m; sourceTree = "<group>"; };
 		A14699101523961C001C7DD7 /* input-3-off.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-3-off.gif"; sourceTree = "<group>"; };
 		A14699111523961C001C7DD7 /* input-3-on.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-3-on.gif"; sourceTree = "<group>"; };
 		A14699121523961C001C7DD7 /* input-2-off.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "input-2-off.gif"; sourceTree = "<group>"; };
@@ -318,6 +327,12 @@
 		A10DE7891517EB99000A7EEA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A13589B71A5EF00E00C9F2F3 /* ALTelemetryModel.h */,
+				A13589B81A5EF00E00C9F2F3 /* ALTelemetryModel.m */,
+				A13589BA1A5F452E00C9F2F3 /* ALPointModel.h */,
+				A13589BB1A5F452E00C9F2F3 /* ALPointModel.m */,
+				A13589B41A5EEA7E00C9F2F3 /* ALRequestFactory.h */,
+				A13589B51A5EEA7E00C9F2F3 /* ALRequestFactory.m */,
 				A1B2ADF0151771150095FD7D /* ALRequest.h */,
 				A1B2ADF1151771150095FD7D /* ALRequest.m */,
 				FAFA3E74189C400800AF6F45 /* ALCarInfo.h */,
@@ -848,10 +863,13 @@
 				A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */,
 				FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */,
 				FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */,
+				A13589B91A5EF00E00C9F2F3 /* ALTelemetryModel.m in Sources */,
 				A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */,
 				FA9F0D8B19EDB74B0089DE62 /* ALCarLocationAnnotation.m in Sources */,
 				A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */,
+				A13589B61A5EEA7E00C9F2F3 /* ALRequestFactory.m in Sources */,
 				A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */,
+				A13589BC1A5F452E00C9F2F3 /* ALPointModel.m in Sources */,
 				A118E96915226C7000C6C89D /* ALSMSListController.m in Sources */,
 				A118E97615237BC200C6C89D /* ALSettingsController.m in Sources */,
 			);

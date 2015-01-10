@@ -7,28 +7,28 @@
 //
 
 #import "ALCarLocationAnnotation.h"
-#import "ALCarInfo.h"
+#import "ALPointModel.h"
 #import "Convertions.h"
 
 @interface ALCarLocationAnnotation ()
 
-@property (nonatomic, strong, readwrite) ALCarLocationPoint *point;
+@property (nonatomic, strong, readwrite) ALParkingModel *parking;
 
 @end
 
 @implementation ALCarLocationAnnotation
 
-- (instancetype)initWithCarLocationPoint:(ALCarLocationPoint*)point {
+- (instancetype)initWithParking:(ALParkingModel*)parking {
     self = [super init];
     if (self) {
-        NSParameterAssert(point);
-        _point = point;
+        NSParameterAssert(parking);
+        _parking = parking;
     }
     return self;
 }
 
 - (BOOL)isLastLocation {
-    return self.point.isLastLocation;
+    return self.parking.isLastLocation;
 }
 
 - (void)setUserLocation:(CLLocation *)userLocation {
@@ -44,7 +44,7 @@
 #pragma mark MKAnnotation Protocol
 
 - (CLLocationCoordinate2D)coordinate {
-    return self.point.location.coordinate;
+    return self.parking.coord;
 }
 
 - (NSString*)title {
@@ -52,15 +52,17 @@
 }
 
 - (NSString*)subtitle {
-    NSString *beginString = [self.point.beginTime formattedTimeString];
+    NSString *beginString = [self.parking.beginTime formattedTimeString];
     
-    NSDate *endTime = self.isLastLocation ? [NSDate date] : self.point.endTime;
-    NSTimeInterval duration = [endTime timeIntervalSinceDate:self.point.beginTime];
+    NSDate *endTime = self.isLastLocation ? [NSDate date] : self.parking.endTime;
+    NSTimeInterval duration = [endTime timeIntervalSinceDate:self.parking.beginTime];
     NSString *durationString = [@(duration) timeStringFromSeconds];
     
     if (self.isLastLocation) {
         if (self.userLocation) {
-            CLLocationDistance distance = [self.userLocation distanceFromLocation:self.point.location];
+            CLLocation *parkingLocation = [[CLLocation alloc] initWithLatitude:self.parking.coord.latitude
+                                                                     longitude:self.parking.coord.longitude];
+            CLLocationDistance distance = [self.userLocation distanceFromLocation:parkingLocation];
             NSString *distanceString = [NSString stringWithFormat:@"%.0fm from me", distance];
             
             return [NSString stringWithFormat:@"%@ (%@) - %@", beginString, durationString, distanceString];
@@ -68,7 +70,7 @@
             return [NSString stringWithFormat:@"%@ (%@)", beginString, durationString];
         }
     } else {
-        NSString *endString = [self.point.endTime formattedTimeString];
+        NSString *endString = [self.parking.endTime formattedTimeString];
         
         return [NSString stringWithFormat:@"%@ - %@ (%@)", beginString, endString, durationString];
     }

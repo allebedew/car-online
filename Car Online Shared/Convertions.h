@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#define KMPH_TO_MPH 0.277777777777778
+#define MS_TO_S 0.001
+
+#define SERVER_TIME_ZONE 4
+#define MIN_PARKING_DURATION 300
+
 @interface NSDate (Convertions)
 
 + (NSDate*)startOfTheDayDate;

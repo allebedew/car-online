@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class AFURLSessionManager;
+
 @interface ALAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (nonatomic, readonly) AFURLSessionManager *sessionManager;
+
++ (instancetype)appDelegate;
 
 @end

@@ -137,11 +137,7 @@ float const responseProgressWeight = 0.3f;
 
 - (ALCarInfo*)generateResultObject {
     ALCarInfo *carInfo = nil;
-    if ([self.command isEqualToString:@"gpslist"]) {
-        carInfo = [[ALCarLocation alloc] initWithServerData:self.receivedData];
-    } else if ([self.command isEqualToString:@"telemetry"]) {
-        carInfo = [[ALCarTelemetry alloc] initWithServerData:self.receivedData];
-    } else if ([self.command isEqualToString:@"events"]) {
+    if ([self.command isEqualToString:@"events"]) {
         carInfo = [[ALCarEvents alloc] initWithServerData:self.receivedData];
     } else {
         NSAssert(NO, @"Wrong request type");
