@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21707D5117A82CD89B4BFFE3 /* libPods-Car Online.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0888F6FB40F8A24BA29CDAD3 /* libPods-Car Online.a */; };
 		3C2832D8B387CCE21AAFDE57 /* libPods-Car Online Desktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 617504C495B77CEF49E3BB94 /* libPods-Car Online Desktop.a */; };
+		A102FC3A1A62A588004DDD2E /* ALVehiclePathRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A102FC391A62A588004DDD2E /* ALVehiclePathRenderer.swift */; };
 		A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */ = {isa = PBXBuildFile; fileRef = A10DE77B1517CD20000A7EEA /* Convertions.m */; };
 		A10DE7801517D9BD000A7EEA /* ALEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A10DE77F1517D9BD000A7EEA /* ALEventsController.m */; };
 		A118E93E1522648F00C6C89D /* EventTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = A118E93D1522648F00C6C89D /* EventTypes.plist */; };
@@ -123,7 +124,6 @@
 		FAA0B40119E91FF800C0294E /* Main.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40019E91FF800C0294E /* Main.xcassets */; };
 		FAA0B40719E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
 		FAA0B40819E9393400C0294E /* todo in Resources */ = {isa = PBXBuildFile; fileRef = FAA0B40519E9393400C0294E /* todo */; };
-		FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */; };
 		FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFA3E75189C400800AF6F45 /* ALCarInfo.m */; };
 		FAFA3E77189C400800AF6F45 /* ALCarInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFA3E75189C400800AF6F45 /* ALCarInfo.m */; };
 		FF357DC6181EBEB700F3DF61 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF357DC5181EBEB700F3DF61 /* Cocoa.framework */; };
@@ -138,6 +138,8 @@
 		52659F50B5D61C8D4CCA4B17 /* Pods-Car Online Desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Online Desktop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Car Online Desktop/Pods-Car Online Desktop.debug.xcconfig"; sourceTree = "<group>"; };
 		5FB182DAD81A9E311A73FA69 /* Pods-Car Online Desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Online Desktop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Car Online Desktop/Pods-Car Online Desktop.release.xcconfig"; sourceTree = "<group>"; };
 		617504C495B77CEF49E3BB94 /* libPods-Car Online Desktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Car Online Desktop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A102FC381A62A587004DDD2E /* Car Online-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Car Online-Bridging-Header.h"; sourceTree = "<group>"; };
+		A102FC391A62A588004DDD2E /* ALVehiclePathRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALVehiclePathRenderer.swift; sourceTree = "<group>"; };
 		A10DE77A1517CD20000A7EEA /* Convertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Convertions.h; sourceTree = "<group>"; };
 		A10DE77B1517CD20000A7EEA /* Convertions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Convertions.m; sourceTree = "<group>"; };
 		A10DE77E1517D9BD000A7EEA /* ALEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEventsController.h; sourceTree = "<group>"; };
@@ -276,8 +278,6 @@
 		FAA0B3FE19E91EF100C0294E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		FAA0B40019E91FF800C0294E /* Main.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Main.xcassets; sourceTree = "<group>"; };
 		FAA0B40519E9393400C0294E /* todo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = todo; sourceTree = "<group>"; };
-		FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPathRenderer.h; sourceTree = "<group>"; };
-		FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPathRenderer.m; sourceTree = "<group>"; };
 		FAFA3E74189C400800AF6F45 /* ALCarInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ALCarInfo.h; path = "Car Online Shared/ALCarInfo.h"; sourceTree = SOURCE_ROOT; };
 		FAFA3E75189C400800AF6F45 /* ALCarInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ALCarInfo.m; path = "Car Online Shared/ALCarInfo.m"; sourceTree = SOURCE_ROOT; };
 		FF357DC5181EBEB700F3DF61 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -514,10 +514,12 @@
 				FA4EBAF119D5EE1100C7A694 /* MainStoryboard_iPhone.storyboard */,
 				A1B2ADDF15176B2D0095FD7D /* ALAppDelegate.h */,
 				A1B2ADE015176B2D0095FD7D /* ALAppDelegate.m */,
+				A102FC391A62A588004DDD2E /* ALVehiclePathRenderer.swift */,
 				FAA0B40B19E9E86500C0294E /* Views */,
 				A1ACEACB16F5D8F000D15ACB /* Controllers */,
 				A1ACEACC16F5DF6800D15ACB /* Resources */,
 				A1B2ADD715176B2D0095FD7D /* Supporting Files */,
+				A102FC381A62A587004DDD2E /* Car Online-Bridging-Header.h */,
 			);
 			path = "Car Online iOS";
 			sourceTree = "<group>";
@@ -596,8 +598,6 @@
 		FAA0B40B19E9E86500C0294E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FAA0B40C19E9E8D400C0294E /* ALPathRenderer.h */,
-				FAA0B40D19E9E8D400C0294E /* ALPathRenderer.m */,
 				FA9F0D8919EDB74B0089DE62 /* ALCarLocationAnnotation.h */,
 				FA9F0D8A19EDB74B0089DE62 /* ALCarLocationAnnotation.m */,
 			);
@@ -861,9 +861,9 @@
 				A1B2ADE115176B2D0095FD7D /* ALAppDelegate.m in Sources */,
 				A1B2ADE415176B2D0095FD7D /* ALLocationController.m in Sources */,
 				A1B2ADF2151771150095FD7D /* ALRequest.m in Sources */,
-				FAA0B40E19E9E8D400C0294E /* ALPathRenderer.m in Sources */,
 				FAFA3E76189C400800AF6F45 /* ALCarInfo.m in Sources */,
 				A13589B91A5EF00E00C9F2F3 /* ALTelemetryModel.m in Sources */,
+				A102FC3A1A62A588004DDD2E /* ALVehiclePathRenderer.swift in Sources */,
 				A1B2ADF515177CE40095FD7D /* GDataXMLNode.m in Sources */,
 				FA9F0D8B19EDB74B0089DE62 /* ALCarLocationAnnotation.m in Sources */,
 				A10DE77C1517CD20000A7EEA /* Convertions.m in Sources */,
@@ -998,12 +998,15 @@
 				);
 				INFOPLIST_FILE = "Car Online iOS/Car Online-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Car Online iOS/Car Online-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1025,12 +1028,14 @@
 				);
 				INFOPLIST_FILE = "Car Online iOS/Car Online-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Car Online iOS/Car Online-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
